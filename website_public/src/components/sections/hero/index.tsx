@@ -1,77 +1,55 @@
 "use client";
 
 import { useRef } from "react";
-import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
-import { HeroCanvas } from "./hero-canvas";
 import Image from "next/image";
 import { useTranslation } from "@/context/language-context";
-
-const SERVICES = ["Performance", "Branding", "Creative", "Strategy"];
 
 export function Hero() {
   const containerRef = useRef<HTMLDivElement>(null);
   const { t } = useTranslation();
 
-  useGSAP(() => {
-    gsap.from(".service-chip", {
-      opacity: 0,
-      scale: 0,
-      y: 50,
-      stagger: 0.1,
-      scrollTrigger: {
-        trigger: containerRef.current,
-        start: "80% bottom",
-        end: "bottom bottom",
-        scrub: true,
-      },
-    });
-  }, { scope: containerRef });
-
   return (
-    <section ref={containerRef} className="relative w-full">
-      <HeroCanvas framesCount={17} imagesPath="/hero-sequence" />
-      
-      {/* Text Overlays */}
-      <div className="pointer-events-none absolute inset-0 z-10">
-        <div className="sticky top-0 h-screen w-full flex flex-col items-center justify-center text-white mix-blend-difference">
-          <div className="text-center space-y-8 flex flex-col items-center">
-            <div className="relative h-48 w-48 bg-white shadow-2xl rounded-full p-10 flex items-center justify-center">
-              <Image
-                src="/logo-v3.png"
-                alt="amediå"
-                width={140}
-                height={140}
-                className="object-contain"
-                priority
-              />
-            </div>
-            <p className="text-xl md:text-2xl font-light tracking-widest uppercase opacity-80">
-              {t('hero.subtitle')}
-            </p>
-          </div>
-          
-          {/* Floating Chips Stage 04 */}
-          <div className="absolute inset-0 flex items-center justify-center pointer-events-auto">
-            {SERVICES.map((service, i) => (
-              <div
-                key={service}
-                className={`service-chip absolute px-6 py-3 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-xs uppercase tracking-widest font-medium transition-colors hover:bg-amedia-blue hover:border-amedia-blue cursor-pointer`}
-                style={{
-                  transform: `rotate(${i * 90}deg) translateY(-250px) rotate(-${i * 90}deg)`,
-                }}
-              >
-                {service}
-              </div>
-            ))}
-          </div>
+    <section 
+      ref={containerRef} 
+      className="relative w-full h-screen flex flex-col items-center justify-center bg-gradient-to-br from-amedia-green to-black text-white overflow-hidden"
+    >
+      {/* Placeholder Background Effect */}
+      <div className="absolute inset-0 opacity-20 pointer-events-none">
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-amedia-blue rounded-full filter blur-3xl animate-pulse" />
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-amedia-green rounded-full filter blur-3xl animate-pulse delay-1000" />
+      </div>
 
-          <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center space-y-2 opacity-50">
-            <span className="text-xs uppercase tracking-[0.3em]">{t('hero.scroll')}</span>
-            <div className="w-[1px] h-12 bg-white animate-pulse" />
-          </div>
+      <div className="relative z-10 text-center space-y-8 flex flex-col items-center max-w-4xl px-6">
+        <div className="relative h-32 w-32 bg-white shadow-2xl rounded-full p-6 flex items-center justify-center">
+          <Image
+            src="/logo-v3.png"
+            alt="amediå"
+            width={100}
+            height={100}
+            className="object-contain"
+            priority
+          />
         </div>
+        
+        <h1 className="text-5xl md:text-7xl font-bold tracking-tighter leading-tight">
+          {t('hero.title')}
+        </h1>
+        
+        <p className="text-xl md:text-2xl font-light tracking-widest uppercase opacity-80">
+          {t('hero.subtitle')}
+        </p>
+
+        <button className="mt-4 px-8 py-4 bg-amedia-blue text-white rounded-full font-medium uppercase tracking-widest text-sm hover:bg-white hover:text-black transition-colors duration-300 shadow-lg hover:shadow-amedia-blue/20">
+          {t('hero.cta')}
+        </button>
+      </div>
+
+      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center space-y-2 opacity-50">
+        <span className="text-xs uppercase tracking-[0.3em]">{t('hero.scroll')}</span>
+        <div className="w-[1px] h-12 bg-white animate-pulse" />
       </div>
     </section>
   );
 }
+
+export { ServicesSequence } from "./services-sequence";

@@ -49,7 +49,7 @@ export function About() {
             {t('labels.vision')}
           </span>
           <h2 className="text-5xl md:text-7xl font-light tracking-tight leading-tight">
-            Focus <br /> to Vision
+            {t('about.title')}
           </h2>
         </motion.div>
 

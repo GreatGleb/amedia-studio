@@ -13,15 +13,58 @@
   },
   "portfolio": {
     "title": "Your Future \n Results",
-    "subtitle": "Scroll right to see what we can create for your business."
+    "subtitle": "Scroll right to see what we can create for your business.",
+    "projects": [
+      {
+        "title": "Nordic Elegance",
+        "category": "Branding"
+      },
+      {
+        "title": "Digital Standard",
+        "category": "Web Development"
+      },
+      {
+        "title": "Focus Strategy",
+        "category": "Marketing"
+      },
+      {
+        "title": "Visionary Tech",
+        "category": "SaaS"
+      }
+    ]
   },
   "hero": {
-    "title": "amediå",
+    "title": "We Create Digital Excellence",
     "subtitle": "Focus to Vision",
-    "scroll": "Scroll"
+    "scroll": "Scroll",
+    "cta": "Get in Touch"
+  },
+  "services": {
+    "title": "What We Do",
+    "subtitle": "Our Services",
+    "desc": "We help brands grow by combining strategy, creativity, and technology.",
+    "items": [
+      {
+        "title": "Performance",
+        "desc": "Data-driven marketing campaigns focused on measurable ROI and scaling your business."
+      },
+      {
+        "title": "Branding",
+        "desc": "Creating a unique identity and brand voice that makes you stand out in the market."
+      },
+      {
+        "title": "Creative",
+        "desc": "Visual concepts and content that capture attention and evoke emotions."
+      },
+      {
+        "title": "Strategy",
+        "desc": "Comprehensive long-term planning for business growth and marketing activities."
+      }
+    ]
   },
   "about": {
     "label": "01. Vision",
+    "title": "Focus to Vision",
     "text": "We transform focus into vision through precise marketing and Nordic minimalism."
   },
   "roi": {
@@ -30,7 +73,9 @@
     "conversion": "Conversion Rate",
     "ltv": "Customer LTV (€)",
     "cost": "Monthly Budget (€)",
-    "result": "Estimated ROI"
+    "result": "Estimated ROI",
+    "revenue": "Revenue",
+    "audit": "Audit"
   },
   "contact": {
     "title": "Submit Request",
@@ -40,6 +85,7 @@
     "submit": "Submit Application",
     "success": "Success!",
     "success_text": "We have received your application. Our strategist will contact you on Telegram within the next hour.",
+    "back": "Back",
     "questions": {
       "service": "Which service are you interested in?",
       "budget": "What is your monthly budget?",
@@ -59,5 +105,9 @@
       "goal_3": "New Website",
       "goal_4": "Scaling"
     }
+  },
+  "footer": {
+    "privacy": "Privacy",
+    "rights": "© 2026 amediå agency. All rights reserved."
   }
 }

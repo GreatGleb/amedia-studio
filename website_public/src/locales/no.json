@@ -13,15 +13,58 @@
   },
   "portfolio": {
     "title": "Dine fremtidige \n resultater",
-    "subtitle": "Sveip til høyre for å se hva vi kan skape for din bedrift."
+    "subtitle": "Sveip til høyre for å se hva vi kan skape for din bedrift.",
+    "projects": [
+      {
+        "title": "Nordisk Eleganse",
+        "category": "Branding"
+      },
+      {
+        "title": "Digital Standard",
+        "category": "Webutvikling"
+      },
+      {
+        "title": "Fokus Strategi",
+        "category": "Markedsføring"
+      },
+      {
+        "title": "Visjonær Teknologi",
+        "category": "SaaS"
+      }
+    ]
   },
   "hero": {
-    "title": "amediå",
+    "title": "Vi skaper digital ekspertise",
     "subtitle": "Fokus til Visjon",
-    "scroll": "Rull"
+    "scroll": "Rull",
+    "cta": "Kontakt oss"
+  },
+  "services": {
+    "title": "Hva vi gjør",
+    "subtitle": "Våre tjenester",
+    "desc": "Vi hjelper merkevarer å vokse ved å kombinere strategi, kreativitet og teknologi.",
+    "items": [
+      {
+        "title": "Performance",
+        "desc": "Datadrevet markedsføring fokusert på målbar ROI og skalering av din bedrift."
+      },
+      {
+        "title": "Branding",
+        "desc": "Skape en unik identitet og merkevarestemme som gjør at du skiller deg ut i markedet."
+      },
+      {
+        "title": "Kreativ",
+        "desc": "Visuelle konsepter og innhold som fanger oppmerksomhet og vekker følelser."
+      },
+      {
+        "title": "Strategi",
+        "desc": "Helhetlig langsiktig planlegging for bedriftsvekst og markedsføringsaktiviteter."
+      }
+    ]
   },
   "about": {
     "label": "01. Visjon",
+    "title": "Fokus til Visjon",
     "text": "Vi forvandler fokus til visjon gjennom presis markedsføring og nordisk minimalisme."
   },
   "roi": {
@@ -30,7 +73,9 @@
     "conversion": "Konverteringsfrekvens",
     "ltv": "Kunde LTV (€)",
     "cost": "Månedlig budsjett (€)",
-    "result": "Estimert ROI"
+    "result": "Estimert ROI",
+    "revenue": "Inntekter",
+    "audit": "Revisjon"
   },
   "contact": {
     "title": "Legg igjen en forespørsel",
@@ -40,6 +85,7 @@
     "submit": "Send forespørsel",
     "success": "Suksess!",
     "success_text": "Vi har mottatt din forespørsel. Vår strateg kontakter deg på Telegram innen den neste hunen.",
+    "back": "Tilbake",
     "questions": {
       "service": "Hvilken tjeneste er du interessert i?",
       "budget": "Hva er ditt månedlige budsjett?",
@@ -59,5 +105,9 @@
       "goal_3": "Ny nettside",
       "goal_4": "Skalering"
     }
+  },
+  "footer": {
+    "privacy": "Personvern",
+    "rights": "© 2026 amediå agency. Alle rettigheter reservert."
   }
 }

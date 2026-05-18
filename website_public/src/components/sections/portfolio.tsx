@@ -82,36 +82,41 @@ export function Portfolio() {
         </div>
 
         {/* Project Slides */}
-        {PROJECTS.map((project) => (
-          <div key={project.id} className="h-full w-screen flex items-center justify-center p-12">
-            <div className="relative group w-full max-w-5xl aspect-video overflow-hidden rounded-2xl bg-white/5">
-              <Image
-                src={project.image}
-                alt={project.title}
-                fill
-                className="object-cover opacity-80 group-hover:scale-105 transition-transform duration-700"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-amedia-green via-transparent to-transparent opacity-60" />
-              
-              <div className="absolute bottom-12 left-12 text-white space-y-2">
-                <span className="text-sm font-mono text-amedia-blue uppercase tracking-widest">
-                  {project.category}
-                </span>
-                <h3 className="text-4xl md:text-5xl font-light tracking-tight">
-                  {project.title}
-                </h3>
-              </div>
+        {PROJECTS.map((project, index) => {
+          const localizedProjects = t('portfolio.projects') as unknown as Array<{ title: string; category: string }>;
+          const localized = localizedProjects?.[index];
+          
+          return (
+            <div key={project.id} className="h-full w-screen flex items-center justify-center p-12">
+              <div className="relative group w-full max-w-5xl aspect-video overflow-hidden rounded-2xl bg-white/5">
+                <Image
+                  src={project.image}
+                  alt={localized?.title || project.title}
+                  fill
+                  className="object-cover opacity-80 group-hover:scale-105 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-amedia-green via-transparent to-transparent opacity-60" />
+                
+                <div className="absolute bottom-12 left-12 text-white space-y-2">
+                  <span className="text-sm font-mono text-amedia-blue uppercase tracking-widest">
+                    {localized?.category || project.category}
+                  </span>
+                  <h3 className="text-4xl md:text-5xl font-light tracking-tight">
+                    {localized?.title || project.title}
+                  </h3>
+                </div>
 
-              <div className="absolute top-12 right-12">
-                <button className="h-16 w-16 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center border border-white/20 hover:bg-amedia-blue hover:border-amedia-blue transition-all group/btn">
-                  <svg className="w-6 h-6 text-white group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                  </svg>
-                </button>
+                <div className="absolute top-12 right-12">
+                  <button className="h-16 w-16 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center border border-white/20 hover:bg-amedia-blue hover:border-amedia-blue transition-all group/btn">
+                    <svg className="w-6 h-6 text-white group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                    </svg>
+                  </button>
+                </div>
               </div>
             </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
     </section>
   );

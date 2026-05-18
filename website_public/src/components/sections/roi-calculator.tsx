@@ -106,7 +106,7 @@ export function ROICalculator() {
 
         <div className="bg-amedia-green text-white p-12 rounded-3xl space-y-12 flex flex-col justify-between aspect-square lg:aspect-auto min-h-[500px]">
           <div className="space-y-2">
-            <span className="text-sm uppercase tracking-widest opacity-60">Revenue</span>
+            <span className="text-sm uppercase tracking-widest opacity-60">{t('roi.revenue')}</span>
             <div className="text-6xl md:text-7xl font-light tracking-tighter">
               {revenue.toLocaleString()}€
             </div>
@@ -126,7 +126,7 @@ export function ROICalculator() {
                 whileTap={{ scale: 0.95 }}
                 className="bg-amedia-blue text-white px-8 py-4 rounded-full text-sm uppercase tracking-widest font-medium"
               >
-                Audit
+                {t('roi.audit')}
               </motion.button>
             </div>
           </div>

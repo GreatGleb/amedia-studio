@@ -183,7 +183,7 @@ export function ContactForm() {
               onClick={() => { setIsSubmitted(false); setCurrentStep(0); setShowContactInfo(false); }}
               className="text-amedia-blue uppercase tracking-[0.3em] text-sm font-bold hover:opacity-70 transition-opacity"
             >
-              Back
+              {t('contact.back')}
             </button>
           </motion.div>
         )}
