@@ -1,0 +1,63 @@
+{
+  "nav": {
+    "vision": "Visjon",
+    "roi": "ROI",
+    "portfolio": "Portefølje",
+    "contact": "Kontakt"
+  },
+  "labels": {
+    "vision": "01. Visjon",
+    "performance": "02. Resultater",
+    "cases": "03. Portefølje",
+    "ready": "Klar til å vokse?"
+  },
+  "portfolio": {
+    "title": "Dine fremtidige \n resultater",
+    "subtitle": "Sveip til høyre for å se hva vi kan skape for din bedrift."
+  },
+  "hero": {
+    "title": "amediå",
+    "subtitle": "Fokus til Visjon",
+    "scroll": "Rull"
+  },
+  "about": {
+    "label": "01. Visjon",
+    "text": "Vi forvandler fokus til visjon gjennom presis markedsføring og nordisk minimalisme."
+  },
+  "roi": {
+    "title": "ROI Kalkulator",
+    "leads": "Leads per måned",
+    "conversion": "Konverteringsfrekvens",
+    "ltv": "Kunde LTV (€)",
+    "cost": "Månedlig budsjett (€)",
+    "result": "Estimert ROI"
+  },
+  "contact": {
+    "title": "Legg igjen en forespørsel",
+    "step_info": "Siste steg: hvordan kontakter vi deg?",
+    "name": "Ditt navn",
+    "telegram": "Telegram / Telefon",
+    "submit": "Send forespørsel",
+    "success": "Suksess!",
+    "success_text": "Vi har mottatt din forespørsel. Vår strateg kontakter deg på Telegram innen den neste hunen.",
+    "questions": {
+      "service": "Hvilken tjeneste er du interessert i?",
+      "budget": "Hva er ditt månedlige budsjett?",
+      "goal": "Hva er ditt hovedmål?"
+    },
+    "options": {
+      "performance": "Performance Marketing",
+      "web": "Webutvikling",
+      "branding": "Branding",
+      "partnership": "Fullskala partnerskap",
+      "budget_1": "< 2000€",
+      "budget_2": "2000€ - 5000€",
+      "budget_3": "5000€ - 10000€",
+      "budget_4": "10000€+",
+      "goal_1": "Øke leads",
+      "goal_2": "Brand awareness",
+      "goal_3": "Ny nettside",
+      "goal_4": "Skalering"
+    }
+  }
+}

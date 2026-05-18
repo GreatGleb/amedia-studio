@@ -1,0 +1,63 @@
+{
+  "nav": {
+    "vision": "Vision",
+    "roi": "ROI",
+    "portfolio": "Portfolio",
+    "contact": "Contact"
+  },
+  "labels": {
+    "vision": "01. Vision",
+    "performance": "02. Results",
+    "cases": "03. Portfolio",
+    "ready": "Ready to Grow?"
+  },
+  "portfolio": {
+    "title": "Your Future \n Results",
+    "subtitle": "Scroll right to see what we can create for your business."
+  },
+  "hero": {
+    "title": "amediå",
+    "subtitle": "Focus to Vision",
+    "scroll": "Scroll"
+  },
+  "about": {
+    "label": "01. Vision",
+    "text": "We transform focus into vision through precise marketing and Nordic minimalism."
+  },
+  "roi": {
+    "title": "ROI Calculator",
+    "leads": "Leads per month",
+    "conversion": "Conversion Rate",
+    "ltv": "Customer LTV (€)",
+    "cost": "Monthly Budget (€)",
+    "result": "Estimated ROI"
+  },
+  "contact": {
+    "title": "Submit Request",
+    "step_info": "Final step: how do we contact you?",
+    "name": "Your Name",
+    "telegram": "Telegram / Phone",
+    "submit": "Submit Application",
+    "success": "Success!",
+    "success_text": "We have received your application. Our strategist will contact you on Telegram within the next hour.",
+    "questions": {
+      "service": "Which service are you interested in?",
+      "budget": "What is your monthly budget?",
+      "goal": "What is your primary goal?"
+    },
+    "options": {
+      "performance": "Performance Marketing",
+      "web": "Web Development",
+      "branding": "Branding",
+      "partnership": "Full Scale Partnership",
+      "budget_1": "< 2000€",
+      "budget_2": "2000€ - 5000€",
+      "budget_3": "5000€ - 10000€",
+      "budget_4": "10000€+",
+      "goal_1": "Lead Generation",
+      "goal_2": "Brand Awareness",
+      "goal_3": "New Website",
+      "goal_4": "Scaling"
+    }
+  }
+}
