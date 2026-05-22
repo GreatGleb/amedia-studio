@@ -5,6 +5,8 @@ import { About } from "@/components/sections/about";
 import { ROICalculator } from "@/components/sections/roi-calculator";
 import { Portfolio } from "@/components/sections/portfolio";
 import { ContactForm } from "@/components/sections/contact-form";
+import { Reviews } from "@/components/sections/reviews";
+import { Team } from "@/components/sections/team";
 
 export default function Home() {
   return (
@@ -16,6 +18,8 @@ export default function Home() {
       <ROICalculator />
       <Portfolio />
       <ContactForm />
+      <Reviews />
+      <Team />
       
       <Footer />
     </main>

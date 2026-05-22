@@ -3,7 +3,8 @@
     "vision": "Visjon",
     "roi": "ROI",
     "portfolio": "Portefølje",
-    "contact": "Kontakt"
+    "contact": "Kontakt",
+    "team": "Team"
   },
   "labels": {
     "vision": "01. Visjon",
@@ -34,10 +35,18 @@
     ]
   },
   "hero": {
-    "title": "Vi skaper digital ekspertise",
-    "subtitle": "Fokus til Visjon",
-    "scroll": "Rull",
-    "cta": "Kontakt oss"
+    "eyebrow": "Fullsyklus Forretningspartnerskap",
+    "title": "Din partner for bærekraftig forretningsvekst",
+    "description": "Vi analyserer dine prosesser, avdekker svake punkter i salg og markedsføring, øker fortjenesten og leder bedriften ut av kriser. Full syklus med støtte for langsiktig skalering.",
+    "cta_primary": "Book et møte",
+    "cta_secondary": "ROI Kalkulator",
+    "metric_1_val": "11+ år",
+    "metric_1_txt": "med bedriftsskalering",
+    "metric_2_val": "300+",
+    "metric_2_txt": "optimaliserte selskaper",
+    "metric_3_val": "5.0 ★",
+    "metric_3_txt": "kundeanmeldelser",
+    "scroll": "Rull"
   },
   "services": {
     "title": "Hva vi gjør",
@@ -107,7 +116,26 @@
     }
   },
   "footer": {
+    "positioning": "Fullsyklus forretningsstøtte og rådgivning. Fra strategisk markedsføring og utvikling til krisehåndtering for bedrifter.",
+    "company_info": "amediå agency HQ",
+    "services_title": "Tjenester",
+    "services": {
+      "marketing": "Markedsføring og Media",
+      "web": "Webutvikling og IT-systemer",
+      "consulting": "Forretningsrådgivning",
+      "crisis": "Krisehåndtering",
+      "enterprise": "Bedriftsløsninger"
+    },
+    "agency_title": "Byrå",
+    "agency": {
+      "about": "Om Oss",
+      "projects": "Prosjekter",
+      "careers": "Karriere",
+      "contact": "Kontakt Oss"
+    },
+    "contact_title": "Kontakt",
     "privacy": "Personvern",
+    "terms": "Vilkår for bruk",
     "rights": "© 2026 amediå agency. Alle rettigheter reservert."
   }
 }

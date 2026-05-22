@@ -6,6 +6,8 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import Image from "next/image";
 import { useTranslation } from "@/context/language-context";
+import { ScrollDownArrow } from "@/components/ui/scroll-down-arrow";
+import { useLenis } from "lenis/react";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -40,6 +42,7 @@ export function Portfolio() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const triggerRef = useRef<HTMLDivElement>(null);
   const { t } = useTranslation();
+  const lenis = useLenis();
 
   useGSAP(() => {
     if (!sectionRef.current || !triggerRef.current) return;
@@ -64,6 +67,37 @@ export function Portfolio() {
       pin.kill();
     };
   }, { scope: triggerRef });
+
+  const handleArrowClick = () => {
+    if (!triggerRef.current || !lenis || !sectionRef.current) return;
+    
+    const sectionStart = triggerRef.current.offsetTop;
+    const scrollWidth = sectionRef.current.offsetWidth - window.innerWidth;
+    const currentScroll = window.scrollY;
+    
+    // If we are before the pinned section, scroll to the start of it
+    if (currentScroll < sectionStart - 10) {
+      lenis.scrollTo(sectionStart, { duration: 1.2 });
+      return;
+    }
+    
+    // If we are at or inside the pinned section, advance by one screen width (one slide)
+    const nextPos = currentScroll + window.innerWidth;
+    
+    // If advancing would take us past the end of the pinned section, scroll to the next actual section
+    if (nextPos >= sectionStart + scrollWidth) {
+      const nextElement = document.getElementById('contact');
+      if (nextElement) {
+        lenis.scrollTo(nextElement, { duration: 1.2 });
+      } else {
+        // Fallback to absolute bottom
+        lenis.scrollTo(document.body.scrollHeight, { duration: 1.2 });
+      }
+    } else {
+      // Just advance one slide
+      lenis.scrollTo(nextPos, { duration: 1.2 });
+    }
+  };
 
   return (
     <section ref={triggerRef} className="relative overflow-hidden z-20 bg-amedia-green">
@@ -118,6 +152,7 @@ export function Portfolio() {
           );
         })}
       </div>
+      <ScrollDownArrow onCustomClick={handleArrowClick} className="text-white/50 hover:text-white" />
     </section>
   );
 }

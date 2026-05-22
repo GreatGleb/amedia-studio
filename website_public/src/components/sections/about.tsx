@@ -6,6 +6,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import { useTranslation } from "@/context/language-context";
+import { ScrollDownArrow } from "@/components/ui/scroll-down-arrow";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -72,6 +73,7 @@ export function About() {
           className="h-[1px] w-full bg-white/20 origin-left"
         />
       </div>
+      <ScrollDownArrow containerRef={containerRef} />
     </section>
   );
 }

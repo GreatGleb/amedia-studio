@@ -3,7 +3,8 @@
     "vision": "Vision",
     "roi": "ROI",
     "portfolio": "Portfolio",
-    "contact": "Contact"
+    "contact": "Contact",
+    "team": "Team"
   },
   "labels": {
     "vision": "01. Vision",
@@ -34,10 +35,18 @@
     ]
   },
   "hero": {
-    "title": "We Create Digital Excellence",
-    "subtitle": "Focus to Vision",
-    "scroll": "Scroll",
-    "cta": "Get in Touch"
+    "eyebrow": "Full-Cycle Business Partnership",
+    "title": "Your Partner for Sustainable Business Growth",
+    "description": "We analyze your operations, identify weak spots in sales and marketing, and design strategies to boost profit. From crisis management to long-term scaling, we guide your business at every stage.",
+    "cta_primary": "Book a Meeting",
+    "cta_secondary": "ROI Calculator",
+    "metric_1_val": "11+ Years",
+    "metric_1_txt": "of scaling businesses",
+    "metric_2_val": "300+",
+    "metric_2_txt": "optimized companies",
+    "metric_3_val": "5.0 ★",
+    "metric_3_txt": "client rating",
+    "scroll": "Scroll"
   },
   "services": {
     "title": "What We Do",
@@ -107,7 +116,26 @@
     }
   },
   "footer": {
-    "privacy": "Privacy",
+    "positioning": "Full-cycle business support and consulting. From strategic marketing and development to enterprise crisis management.",
+    "company_info": "amediå agency HQ",
+    "services_title": "Services",
+    "services": {
+      "marketing": "Marketing & Media",
+      "web": "Web Dev & IT Systems",
+      "consulting": "Business Consulting",
+      "crisis": "Crisis Management",
+      "enterprise": "Enterprise Solutions"
+    },
+    "agency_title": "Agency",
+    "agency": {
+      "about": "About Us",
+      "projects": "Projects",
+      "careers": "Careers",
+      "contact": "Contact Us"
+    },
+    "contact_title": "Contact",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
     "rights": "© 2026 amediå agency. All rights reserved."
   }
 }

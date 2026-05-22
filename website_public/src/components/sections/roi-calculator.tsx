@@ -1,8 +1,9 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useRef } from "react";
 import { motion } from "framer-motion";
 import { useTranslation } from "@/context/language-context";
+import { ScrollDownArrow } from "@/components/ui/scroll-down-arrow";
 
 interface SliderProps {
   label: string;
@@ -39,6 +40,7 @@ function Slider({ label, value, min, max, step = 1, unit = "", onChange }: Slide
 }
 
 export function ROICalculator() {
+  const containerRef = useRef<HTMLElement>(null);
   const { t } = useTranslation();
   const [leads, setLeads] = useState(100);
   const [conversion, setConversion] = useState(5);
@@ -54,8 +56,8 @@ export function ROICalculator() {
   const revenue = leads * (conversion / 100) * ltv;
 
   return (
-    <section id="roi" className="bg-[#f8f8f8] py-24 px-6">
-      <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+    <section id="roi" ref={containerRef} className="relative bg-[#f8f8f8] py-24 px-6 min-h-screen flex items-center">
+      <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center w-full">
         <div className="space-y-8">
           <div className="space-y-4">
             <span className="text-amedia-blue font-mono text-sm tracking-widest uppercase">
@@ -132,6 +134,7 @@ export function ROICalculator() {
           </div>
         </div>
       </div>
+      <ScrollDownArrow containerRef={containerRef as any} className="text-zinc-900/40 hover:text-zinc-900" />
     </section>
   );
 }

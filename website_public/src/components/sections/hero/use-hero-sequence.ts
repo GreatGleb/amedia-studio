@@ -60,8 +60,8 @@ export function useHeroSequence({ framesCount, imagesPath }: UseHeroSequenceProp
 
     // Set canvas size
     const setSize = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
+      canvas.width = canvas.parentElement ? canvas.parentElement.clientWidth : window.innerWidth;
+      canvas.height = canvas.parentElement ? canvas.parentElement.clientHeight : window.innerHeight;
       render();
     };
 
@@ -137,7 +137,7 @@ export function useHeroSequence({ framesCount, imagesPath }: UseHeroSequenceProp
       ease: "none",
       scrollTrigger: {
         trigger: containerRef.current,
-        start: "top top",
+        start: () => `top ${window.innerWidth >= 768 ? 88 : 80}px`,
         end: "bottom bottom",
         scrub: 0.5, // Smoother follow
         anticipatePin: 1,

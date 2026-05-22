@@ -19,7 +19,19 @@ const translations: Record<Language, Translations> = { no, ru, en };
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
-  const [language, setLanguage] = useState<Language>("no");
+  const [language, setLanguageState] = useState<Language>("no");
+
+  useEffect(() => {
+    const savedLang = localStorage.getItem("language") as Language;
+    if (savedLang && ["no", "ru", "en"].includes(savedLang)) {
+      setLanguageState(savedLang);
+    }
+  }, []);
+
+  const setLanguage = (lang: Language) => {
+    setLanguageState(lang);
+    localStorage.setItem("language", lang);
+  };
 
   const t = (path: string) => {
     const keys = path.split(".");

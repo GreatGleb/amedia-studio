@@ -5,6 +5,7 @@ import { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { useTranslation } from "@/context/language-context";
+import { ScrollDownArrow } from "@/components/ui/scroll-down-arrow";
 
 export function ServicesSequence() {
   const { t } = useTranslation();
@@ -50,12 +51,12 @@ export function ServicesSequence() {
       <div className="flex flex-col md:flex-row">
         
         {/* Правая часть: Липкий Canvas (теперь первая в DOM для мобилок) */}
-        <div className="w-full md:w-1/2 h-[40vh] md:h-screen sticky top-0 overflow-hidden bg-zinc-900 order-first md:order-last">
+        <div className="w-full md:w-1/2 h-[40vh] md:h-[calc(100vh-88px)] sticky top-[80px] md:top-[88px] overflow-hidden bg-zinc-900 order-first md:order-last">
           <canvas ref={canvasRef} className="h-full w-full object-cover" />
         </div>
 
         {/* Левая часть: Список услуг */}
-        <div className="w-full md:w-1/2 px-6 md:px-12 py-24 space-y-[40vh]">
+        <div className="w-full md:w-1/2 px-6 md:px-12 pt-32 pb-24 md:pt-40 md:pb-24 space-y-[40vh]">
           <div className="space-y-4">
             <span className="text-amedia-blue font-mono text-sm tracking-widest uppercase">
               {t('services.subtitle') || "Our Services"}
@@ -89,6 +90,7 @@ export function ServicesSequence() {
         </div>
 
       </div>
+      <ScrollDownArrow containerRef={containerRef} />
     </section>
   );
 }
