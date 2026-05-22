@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 
 export function NetworkEffect({ color = "255, 255, 255" }: { color?: string }) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const mouseRef = useRef({ x: -1000, y: -1000 });
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -28,15 +29,31 @@ export function NetworkEffect({ color = "255, 255, 255" }: { color?: string }) {
     resize();
     window.addEventListener("resize", resize);
 
+    // Mouse listeners for interactivity
+    const handleMouseMove = (e: MouseEvent) => {
+      const rect = canvas.getBoundingClientRect();
+      mouseRef.current = {
+        x: e.clientX - rect.left,
+        y: e.clientY - rect.top,
+      };
+    };
+    const handleMouseLeave = () => {
+      mouseRef.current = { x: -1000, y: -1000 };
+    };
+    canvas.addEventListener("mousemove", handleMouseMove);
+    canvas.addEventListener("mouseleave", handleMouseLeave);
+
     // Node definition
-    const numNodes = 50; // Amount of nodes
-    const maxDistance = 150; // Distance to form connections
+    const numNodes = 60; // Увеличил количество узлов для плотности
+    const maxDistance = 140; // Оптимальная дистанция связи
+    const mouseInteractionRadius = 180; // Радиус взаимодействия с мышью
+
     const nodes = Array.from({ length: numNodes }).map(() => ({
       x: Math.random() * width,
       y: Math.random() * height,
-      vx: (Math.random() - 0.5) * 0.8, // Slow velocity X
-      vy: (Math.random() - 0.5) * 0.8, // Slow velocity Y
-      radius: Math.random() * 2 + 1,
+      vx: (Math.random() - 0.5) * 0.6, // Очень плавное движение
+      vy: (Math.random() - 0.5) * 0.6,
+      radius: Math.random() * 1.5 + 0.5, // Более изящные точки
     }));
 
     const draw = () => {
@@ -45,10 +62,32 @@ export function NetworkEffect({ color = "255, 255, 255" }: { color?: string }) {
       // Update positions
       for (let i = 0; i < numNodes; i++) {
         const node = nodes[i];
+        
+        // Базовое движение
         node.x += node.vx;
         node.y += node.vy;
 
-        // Soft boundary bounce
+        // Взаимодействие с мышью (отталкивание и связи)
+        const dxMouse = node.x - mouseRef.current.x;
+        const dyMouse = node.y - mouseRef.current.y;
+        const distMouse = Math.sqrt(dxMouse * dxMouse + dyMouse * dyMouse);
+        
+        if (distMouse < mouseInteractionRadius) {
+          // Легкое отталкивание от курсора (эффект магнита)
+          const force = (mouseInteractionRadius - distMouse) / mouseInteractionRadius;
+          node.x += (dxMouse / distMouse) * force * 1.5;
+          node.y += (dyMouse / distMouse) * force * 1.5;
+
+          // Отрисовка линии к курсору (курсор становится узлом сети!)
+          ctx.beginPath();
+          ctx.moveTo(node.x, node.y);
+          ctx.lineTo(mouseRef.current.x, mouseRef.current.y);
+          ctx.strokeStyle = `rgba(${color}, ${force * 0.4})`;
+          ctx.lineWidth = 1;
+          ctx.stroke();
+        }
+
+        // Мягкий отскок от границ
         if (node.x <= 0 || node.x >= width) node.vx *= -1;
         if (node.y <= 0 || node.y >= height) node.vy *= -1;
       }
@@ -64,9 +103,9 @@ export function NetworkEffect({ color = "255, 255, 255" }: { color?: string }) {
             ctx.beginPath();
             ctx.moveTo(nodes[i].x, nodes[i].y);
             ctx.lineTo(nodes[j].x, nodes[j].y);
-            // Opacity falls off as nodes get further apart
-            const opacity = 1 - dist / maxDistance;
-            ctx.strokeStyle = `rgba(${color}, ${opacity * 0.4})`; // Subtle lines
+            // Плавное затухание линии в зависимости от расстояния
+            const opacity = Math.pow(1 - dist / maxDistance, 1.5); // Квадратичное затухание выглядит красивее
+            ctx.strokeStyle = `rgba(${color}, ${opacity * 0.5})`;
             ctx.lineWidth = 1;
             ctx.stroke();
           }
@@ -77,7 +116,7 @@ export function NetworkEffect({ color = "255, 255, 255" }: { color?: string }) {
       for (let i = 0; i < numNodes; i++) {
         ctx.beginPath();
         ctx.arc(nodes[i].x, nodes[i].y, nodes[i].radius, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(${color}, 0.7)`; // Slightly more opaque dots
+        ctx.fillStyle = `rgba(${color}, 0.8)`;
         ctx.fill();
       }
 
@@ -88,6 +127,8 @@ export function NetworkEffect({ color = "255, 255, 255" }: { color?: string }) {
 
     return () => {
       window.removeEventListener("resize", resize);
+      canvas.removeEventListener("mousemove", handleMouseMove);
+      canvas.removeEventListener("mouseleave", handleMouseLeave);
       cancelAnimationFrame(animationFrameId);
     };
   }, [color]);
@@ -98,7 +139,7 @@ export function NetworkEffect({ color = "255, 255, 255" }: { color?: string }) {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.5 }}
-      className="absolute inset-0 pointer-events-none z-0 overflow-hidden"
+      className="absolute inset-0 z-0 overflow-hidden" // Убрал pointer-events-none, чтобы ловить события мыши
       style={{
         maskImage: "linear-gradient(to right, transparent 0%, transparent 40%, black 80%, black 100%)",
         WebkitMaskImage: "linear-gradient(to right, transparent 0%, transparent 40%, black 80%, black 100%)"

@@ -7,17 +7,17 @@ export function GanttEffect({ color = "bg-white" }: { color?: string }) {
   const [tasks, setTasks] = useState<Array<{ id: number, width: number, top: number, duration: number, delay: number, opacity: number, progress: number }>>([]);
 
   useEffect(() => {
-    // 6 "дорожек" (lanes) для имитации структуры таск-трекера
-    const lanes = [15, 30, 45, 60, 75, 90];
+    // 8 тонких дорожек для более изящной сетки
+    const lanes = [10, 20, 32, 45, 55, 68, 80, 90];
 
-    const newTasks = Array.from({ length: 25 }).map((_, i) => ({
+    const newTasks = Array.from({ length: 18 }).map((_, i) => ({
       id: i,
-      width: Math.random() * 120 + 80, // Ширина задачи
-      top: lanes[Math.floor(Math.random() * lanes.length)], // Привязка к конкретной строке!
-      duration: Math.random() * 15 + 25, // Медленный, строгий скролл таймлайна
-      delay: -(Math.random() * 40), 
-      opacity: Math.random() * 0.4 + 0.4, // Плотный цвет
-      progress: Math.random() * 70 + 10, // Имитация заполненности задачи (%)
+      width: Math.random() * 100 + 60, // Более аккуратная ширина
+      top: lanes[Math.floor(Math.random() * lanes.length)],
+      duration: Math.random() * 10 + 20, // Оптимальная скорость
+      delay: -(Math.random() * 30), 
+      opacity: Math.random() * 0.2 + 0.15, // Мягкая, премиальная полупрозрачность
+      progress: Math.random() * 60 + 20,
     }));
     setTasks(newTasks);
   }, []);
@@ -34,18 +34,15 @@ export function GanttEffect({ color = "bg-white" }: { color?: string }) {
         WebkitMaskImage: "linear-gradient(to right, transparent 0%, transparent 20%, black 80%, black 100%)"
       }}
     >
-      {/* Вертикальная линия "сегодняшнего дня" на диаграмме Ганта */}
-      <div className="absolute top-0 bottom-0 right-[30%] w-[1px] bg-amedia-green/20 border-r border-dashed border-amedia-green/30" />
-
       {tasks.map((task) => (
         <motion.div
           key={task.id}
-          className={`absolute rounded-sm overflow-hidden flex items-center shadow-sm ${color}`}
+          className={`absolute rounded-sm overflow-hidden flex items-center ${color}`}
           style={{
-            height: "14px", // Похоже на реальный блок задачи
+            height: "6px", // Тонкие, элегантные линии
             width: `${task.width}px`,
-            top: `calc(${task.top}% - 7px)`,
-            right: "-300px", 
+            top: `calc(${task.top}% - 3px)`,
+            right: "-200px", 
             opacity: task.opacity,
           }}
           animate={{
@@ -58,9 +55,9 @@ export function GanttEffect({ color = "bg-white" }: { color?: string }) {
             ease: "linear",
           }}
         >
-          {/* Индикатор "прогресса" внутри задачи */}
+          {/* Очень деликатный прогресс */}
           <div 
-            className="h-full bg-black/20" 
+            className="h-full bg-black/10" 
             style={{ width: `${task.progress}%` }} 
           />
         </motion.div>
