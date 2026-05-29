@@ -1,36 +1,46 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# amediå — Nordic Marketing Agency
 
-## Getting Started
+High-end digital agency website built with [Next.js](https://nextjs.org) (static export).
 
-First, run the development server:
+## Development
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Deploy to GitHub Pages
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+The site is deployed to `https://greatgleb.github.io/amedia-studio/`.
 
-## Learn More
+### Build
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npm run deploy
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+This will:
+1. Build the project (`next build`)
+2. Rename `_next` → `next` (GitHub Pages ignores `_`-prefixed folders)
+3. Fix all `/_next/` references in HTML/JS/CSS files
+4. Copy build output to repository root
+5. Create `.nojekyll` file
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Push to GitHub
 
-## Deploy on Vercel
+After building, commit and push:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+git add -A
+git commit -m "deploy"
+git push
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+GitHub Pages will serve the already-pushed files directly from the repository root.
+
+### GitHub Pages settings
+
+One-time setup in repository Settings → Pages:
+- **Source**: Deploy from a branch
+- **Branch**: `main`, **folder**: `/` (root)

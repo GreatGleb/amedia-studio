@@ -3,8 +3,9 @@
  * 1. Runs next build
  * 2. Renames _next → next (GitHub Pages ignores _ folders)
  * 3. Fixes all _next references in HTML/JS/CSS/TXT files
- * 4. Copies out/* to repository root
- * 5. Creates .nojekyll in root
+ * 4. Removes old build files from repository root
+ * 5. Copies out/* to repository root
+ * 6. Creates .nojekyll in root
  *
  * Usage: node scripts/deploy.js
  */
@@ -16,9 +17,33 @@ const path = require("path");
 const ROOT = path.resolve(__dirname, "..");
 const OUT = path.join(ROOT, "out");
 
-// Files/folders to NOT copy from out/ to root (they belong to the project itself)
-const SKIP_COPY = new Set([
-  "next", // renamed from _next — will be copied
+// Files/folders in root that belong to the project (NOT build output)
+const PROJECT_FILES = new Set([
+  ".git",
+  ".github",
+  ".gitignore",
+  ".idea",
+  ".env.local",
+  "ai",
+  "node_modules",
+  "out",         // Next.js build output (keep it, we copy from it)
+  "package.json",
+  "package-lock.json",
+  "postcss.config.mjs",
+  "public",
+  "scripts",
+  "sequence_camera_photos",
+  "src",
+  "tsconfig.json",
+  "eslint.config.mjs",
+  "next.config.ts",
+  "AGENTS.md",
+  "CLAUDE.md",
+  "README.md",
+  "base project.md",
+  "next",        // Next.js build cache (.next)
+  ".next",       // Next.js build cache
+  "photos",
 ]);
 
 function run(cmd) {
@@ -62,6 +87,22 @@ function fixReferences(dir) {
   return count;
 }
 
+function cleanRoot() {
+  const entries = fs.readdirSync(ROOT, { withFileTypes: true });
+  let removed = 0;
+  for (const entry of entries) {
+    if (PROJECT_FILES.has(entry.name)) continue;
+    const fullPath = path.join(ROOT, entry.name);
+    if (entry.isDirectory()) {
+      fs.rmSync(fullPath, { recursive: true, force: true });
+    } else {
+      fs.unlinkSync(fullPath);
+    }
+    removed++;
+  }
+  return removed;
+}
+
 function copyOutToRoot(srcDir, destDir) {
   const entries = fs.readdirSync(srcDir, { withFileTypes: true });
   let count = 0;
@@ -69,10 +110,6 @@ function copyOutToRoot(srcDir, destDir) {
     const srcPath = path.join(srcDir, entry.name);
     const destPath = path.join(destDir, entry.name);
     if (entry.isDirectory()) {
-      // Remove existing destination dir first to avoid mixing old files
-      if (fs.existsSync(destPath)) {
-        fs.rmSync(destPath, { recursive: true, force: true });
-      }
       fs.cpSync(srcPath, destPath, { recursive: true });
       count++;
     } else {
@@ -99,13 +136,18 @@ function main() {
   const fixed = fixReferences(OUT);
   console.log(`  ✅ Fixed ${fixed} files`);
 
-  // Step 4: Copy out/* → repository root
-  console.log("\n📂 Step 4: Copying out/* to repository root...");
+  // Step 4: Remove old build files from root
+  console.log("\n🧹 Step 4: Removing old build files from root...");
+  const removed = cleanRoot();
+  console.log(`  ✅ Removed ${removed} old items`);
+
+  // Step 5: Copy out/* → repository root
+  console.log("\n📂 Step 5: Copying out/* to repository root...");
   const copied = copyOutToRoot(OUT, ROOT);
   console.log(`  ✅ Copied ${copied} items to root`);
 
-  // Step 5: Create .nojekyll in root
-  console.log("\n📄 Step 5: Creating .nojekyll...");
+  // Step 6: Create .nojekyll in root
+  console.log("\n📄 Step 6: Creating .nojekyll...");
   fs.writeFileSync(path.join(ROOT, ".nojekyll"), "");
   console.log("  ✅ Created .nojekyll in root");
 
