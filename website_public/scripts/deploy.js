@@ -3,8 +3,8 @@
  * 1. Runs next build
  * 2. Renames _next → next (GitHub Pages ignores _ folders)
  * 3. Fixes all _next references in HTML/JS/CSS/TXT files
- * 4. Removes old build files from repository root
- * 5. Copies out/* to repository root
+ * 4. Removes old build files from repository root (Amedia/)
+ * 5. Copies out/* to repository root (Amedia/)
  * 6. Creates .nojekyll in root
  *
  * Usage: node scripts/deploy.js
@@ -14,41 +14,23 @@ const { execSync } = require("child_process");
 const fs = require("fs");
 const path = require("path");
 
-const ROOT = path.resolve(__dirname, "..");
-const OUT = path.join(ROOT, "out");
+// ROOT = Amedia/ (parent of website_public/, where .git now lives)
+const ROOT = path.resolve(__dirname, "..", "..");
+const OUT = path.join(path.resolve(__dirname, ".."), "out");
 
-// Files/folders in root that belong to the project (NOT build output)
+// Files/folders in root (Amedia/) that belong to the project (NOT build output)
 const PROJECT_FILES = new Set([
   ".git",
-  ".github",
   ".gitignore",
   ".idea",
-  ".env.local",
-  "ai",
-  "node_modules",
-  "out",         // Next.js build output (keep it, we copy from it)
-  "package.json",
-  "package-lock.json",
-  "postcss.config.mjs",
-  "public",
-  "scripts",
-  "sequence_camera_photos",
-  "src",
-  "tsconfig.json",
-  "eslint.config.mjs",
-  "next.config.ts",
-  "AGENTS.md",
-  "CLAUDE.md",
+  "website_public",
+  "images",
   "README.md",
-  "base project.md",
-  "next",        // Next.js build cache (.next)
-  ".next",       // Next.js build cache
-  "photos",
 ]);
 
 function run(cmd) {
   console.log(`> ${cmd}`);
-  execSync(cmd, { cwd: ROOT, stdio: "inherit" });
+  execSync(cmd, { cwd: path.resolve(__dirname, ".."), stdio: "inherit" });
 }
 
 function renameNextDir(dir) {
@@ -122,6 +104,8 @@ function copyOutToRoot(srcDir, destDir) {
 
 function main() {
   console.log("🚀 Deploying to GitHub Pages...\n");
+  console.log(`   ROOT = ${ROOT}`);
+  console.log(`   OUT  = ${OUT}\n`);
 
   // Step 1: Build
   console.log("📦 Step 1: Building...");
@@ -136,22 +120,23 @@ function main() {
   const fixed = fixReferences(OUT);
   console.log(`  ✅ Fixed ${fixed} files`);
 
-  // Step 4: Remove old build files from root
-  console.log("\n🧹 Step 4: Removing old build files from root...");
+  // Step 4: Remove old build files from root (Amedia/)
+  console.log("\n🧹 Step 4: Removing old build files from Amedia/ root...");
   const removed = cleanRoot();
   console.log(`  ✅ Removed ${removed} old items`);
 
-  // Step 5: Copy out/* → repository root
-  console.log("\n📂 Step 5: Copying out/* to repository root...");
+  // Step 5: Copy out/* → Amedia/ root
+  console.log("\n📂 Step 5: Copying out/* to Amedia/ root...");
   const copied = copyOutToRoot(OUT, ROOT);
-  console.log(`  ✅ Copied ${copied} items to root`);
+  console.log(`  ✅ Copied ${copied} items to Amedia/ root`);
 
   // Step 6: Create .nojekyll in root
   console.log("\n📄 Step 6: Creating .nojekyll...");
   fs.writeFileSync(path.join(ROOT, ".nojekyll"), "");
-  console.log("  ✅ Created .nojekyll in root");
+  console.log("  ✅ Created .nojekyll in Amedia/ root");
 
-  console.log(`\n✅ Done! Now push everything to GitHub:`);
+  console.log(`\n✅ Done! Now push everything to GitHub from Amedia/:`);
+  console.log(`   cd ..`);
   console.log(`   git add -A`);
   console.log(`   git commit -m "deploy"`);
   console.log(`   git push`);
