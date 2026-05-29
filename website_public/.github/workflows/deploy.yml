@@ -33,6 +33,15 @@ jobs:
       - name: Build with Next.js
         run: npm run build
 
+      - name: Rename _next to next and fix references (GitHub Pages ignores _ folders)
+        run: |
+          # Rename _next directory to next
+          mv ./out/_next ./out/next
+          # Replace all occurrences of "/_next/" with "/next/" in HTML/JS/CSS files
+          find ./out -type f \( -name "*.html" -o -name "*.js" -o -name "*.css" -o -name "*.txt" \) -exec sed -i 's|/_next/|/next/|g' {} +
+          # Also replace in paths that start with /amedia-studio/_next/
+          find ./out -type f \( -name "*.html" -o -name "*.js" -o -name "*.css" -o -name "*.txt" \) -exec sed -i 's|/amedia-studio/_next/|/amedia-studio/next/|g' {} +
+
       - name: Add .nojekyll for GitHub Pages
         run: touch ./out/.nojekyll
 
