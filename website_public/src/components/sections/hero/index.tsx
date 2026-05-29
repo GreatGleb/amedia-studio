@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import { useTranslation } from "@/context/language-context";
 import { useLenis } from "lenis/react";
 import { ScrollDownArrow } from "@/components/ui/scroll-down-arrow";
+import { asset } from "@/lib/utils";
 
 export function Hero() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -117,10 +118,10 @@ export function Hero() {
             playsInline
             className="object-cover object-center w-full h-full brightness-[0.7] contrast-[1.05]"
           >
-            <source src="/videos/18660951-hd_1920_1080_30fps.mp4" type="video/mp4" media="(min-width: 1280px)" />
-            <source src="/videos/18660951-hd_1280_720_30fps.mp4" type="video/mp4" media="(min-width: 768px)" />
-            <source src="/videos/18660951-sd_640_360_30fps.mp4" type="video/mp4" media="(min-width: 480px)" />
-            <source src="/videos/18660951-sd_426_240_30fps.mp4" type="video/mp4" />
+            <source src={asset("/videos/18660951-hd_1920_1080_30fps.mp4")} type="video/mp4" media="(min-width: 1280px)" />
+            <source src={asset("/videos/18660951-hd_1280_720_30fps.mp4")} type="video/mp4" media="(min-width: 768px)" />
+            <source src={asset("/videos/18660951-sd_640_360_30fps.mp4")} type="video/mp4" media="(min-width: 480px)" />
+            <source src={asset("/videos/18660951-sd_426_240_30fps.mp4")} type="video/mp4" />
           </video>
         </motion.div>
         

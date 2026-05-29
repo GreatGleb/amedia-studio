@@ -9,6 +9,7 @@ import { NetworkEffect } from "@/components/ui/network-effect";
 import { OrbitEffect } from "@/components/ui/orbit-effect";
 import { GanttEffect } from "@/components/ui/gantt-effect";
 import { ScrollDownArrow } from "@/components/ui/scroll-down-arrow";
+import { asset } from "@/lib/utils";
 
 const getTeamMembers = (t: any) => [
   {
@@ -18,7 +19,7 @@ const getTeamMembers = (t: any) => [
     description: t('team.desc.techLead') || "Техническая реализация и архитектура проектов.",
     bgClass: "bg-amedia-green text-white",
     effect: "network",
-    image: "/TechLead.png",
+    image: asset("/TechLead.png"),
     imageOffset: true,
   },
   {
@@ -28,7 +29,7 @@ const getTeamMembers = (t: any) => [
     description: t('team.desc.generalDirector') || "Стратегическое управление и развитие агентства.",
     bgClass: "bg-amedia-blue text-white",
     effect: "orbit",
-    image: "/PR.jpg",
+    image: asset("/PR.jpg"),
     imageOffset: true,
   },
   {
@@ -36,9 +37,9 @@ const getTeamMembers = (t: any) => [
     role: t('team.roles.projectManager') || "Project Manager",
     name: "Lenor Hermansen",
     description: t('team.desc.projectManager') || "Координация процессов и управление проектами.",
-    bgClass: "bg-gray-900 text-white", 
+    bgClass: "bg-gray-900 text-white",
     effect: "gantt",
-    image: "/Project Manager.jpg",
+    image: asset("/Project Manager.jpg"),
     imageOffset: true,
   }
 ];

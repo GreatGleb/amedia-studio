@@ -8,6 +8,7 @@ import { useGSAP } from "@gsap/react";
 import { useTranslation } from "@/context/language-context";
 import { ScrollDownArrow } from "@/components/ui/scroll-down-arrow";
 import Image from "next/image";
+import { asset } from "@/lib/utils";
 import { Layers, Rocket } from "lucide-react";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -119,7 +120,7 @@ export function About() {
             className="col-span-1 sm:col-span-2 relative min-h-[250px] sm:min-h-[300px] rounded-3xl bg-white/5 backdrop-blur-xl border border-white/10 overflow-hidden group"
           >
             <Image
-              src="/about-bg.png"
+              src={asset("/about-bg.png")}
               alt="amediå agency"
               fill
               className="object-cover opacity-30 group-hover:opacity-50 transition-all duration-700 group-hover:scale-105"

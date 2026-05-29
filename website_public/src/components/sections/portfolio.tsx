@@ -7,6 +7,7 @@ import { useLenis } from "lenis/react";
 import { ArrowRight, X } from "lucide-react";
 import Image from "next/image";
 import { ScrollDownArrow } from "@/components/ui/scroll-down-arrow";
+import { asset } from "@/lib/utils";
 
 interface BentoCase {
   id: number;
@@ -205,13 +206,13 @@ const BentoCard = ({
                   <div className="flex-[1.2] relative bg-black/20 rounded-3xl p-4 flex flex-col gap-4 min-h-[400px]">
                      <div className="grid grid-cols-2 gap-4 h-full">
                        <div className="col-span-2 relative rounded-2xl overflow-hidden shadow-xl border border-white/10 group h-48 md:h-auto">
-                          <Image src="/images/portfolio/furniture_hero.png" alt="Furniture Hero" fill className="object-cover object-top group-hover:scale-105 transition-transform duration-700" />
+                          <Image src={asset("/images/portfolio/furniture_hero.png")} alt="Furniture Hero" fill className="object-cover object-top group-hover:scale-105 transition-transform duration-700" />
                        </div>
                        <div className="relative rounded-2xl overflow-hidden shadow-xl border border-white/10 group h-40 md:h-auto">
-                          <Image src="/images/portfolio/furniture_catalog.png" alt="Furniture Catalog" fill className="object-cover object-top group-hover:scale-105 transition-transform duration-700" />
+                          <Image src={asset("/images/portfolio/furniture_catalog.png")} alt="Furniture Catalog" fill className="object-cover object-top group-hover:scale-105 transition-transform duration-700" />
                        </div>
                        <div className="relative rounded-2xl overflow-hidden shadow-xl border border-white/10 group h-40 md:h-auto">
-                          <Image src="/images/portfolio/furniture_product.png" alt="Furniture Product" fill className="object-cover object-top group-hover:scale-105 transition-transform duration-700" />
+                          <Image src={asset("/images/portfolio/furniture_product.png")} alt="Furniture Product" fill className="object-cover object-top group-hover:scale-105 transition-transform duration-700" />
                        </div>
                      </div>
                   </div>
@@ -219,13 +220,13 @@ const BentoCard = ({
                   <div className="flex-[1.2] relative bg-black/20 rounded-3xl p-4 flex flex-col gap-4 min-h-[400px]">
                      <div className="grid grid-cols-2 gap-4 h-full">
                        <div className="col-span-2 relative rounded-2xl overflow-hidden shadow-xl border border-white/10 group h-48 md:h-auto">
-                          <Image src="/images/portfolio/ecommerce_storefront.png" alt="E-commerce Storefront" fill className="object-cover object-top group-hover:scale-105 transition-transform duration-700" />
+                          <Image src={asset("/images/portfolio/ecommerce_storefront.png")} alt="E-commerce Storefront" fill className="object-cover object-top group-hover:scale-105 transition-transform duration-700" />
                        </div>
                        <div className="relative rounded-2xl overflow-hidden shadow-xl border border-white/10 group h-40 md:h-auto">
-                          <Image src="/images/portfolio/ecommerce_analytics.png" alt="Performance Dashboard" fill className="object-cover object-top group-hover:scale-105 transition-transform duration-700" />
+                          <Image src={asset("/images/portfolio/ecommerce_analytics.png")} alt="Performance Dashboard" fill className="object-cover object-top group-hover:scale-105 transition-transform duration-700" />
                        </div>
                        <div className="relative rounded-2xl overflow-hidden shadow-xl border border-white/10 group h-40 md:h-auto">
-                          <Image src="/images/portfolio/ecommerce_checkout.png" alt="Checkout Flow" fill className="object-cover object-top group-hover:scale-105 transition-transform duration-700" />
+                          <Image src={asset("/images/portfolio/ecommerce_checkout.png")} alt="Checkout Flow" fill className="object-cover object-top group-hover:scale-105 transition-transform duration-700" />
                        </div>
                      </div>
                   </div>
@@ -233,13 +234,13 @@ const BentoCard = ({
                   <div className="flex-[1.2] relative bg-black/20 rounded-3xl p-4 flex flex-col gap-4 min-h-[400px]">
                      <div className="grid grid-cols-2 gap-4 h-full">
                        <div className="col-span-2 relative rounded-2xl overflow-hidden shadow-xl border border-white/10 group h-48 md:h-auto">
-                          <video src="/videos/portfolio/lotus_video.mp4" autoPlay loop muted playsInline className="object-cover w-full h-full object-center group-hover:scale-105 transition-transform duration-700" />
+                          <video src={asset("/videos/portfolio/lotus_video.mp4")} autoPlay loop muted playsInline className="object-cover w-full h-full object-center group-hover:scale-105 transition-transform duration-700" />
                        </div>
                        <div className="relative rounded-2xl overflow-hidden shadow-xl border border-white/10 group h-40 md:h-auto">
-                          <Image src="/images/portfolio/lotus_1.jpg" alt="Lotus Exige 1" fill className="object-cover object-center group-hover:scale-105 transition-transform duration-700" />
+                          <Image src={asset("/images/portfolio/lotus_1.jpg")} alt="Lotus Exige 1" fill className="object-cover object-center group-hover:scale-105 transition-transform duration-700" />
                        </div>
                        <div className="relative rounded-2xl overflow-hidden shadow-xl border border-white/10 group h-40 md:h-auto">
-                          <Image src="/images/portfolio/lotus_2.jpg" alt="Lotus Exige 2" fill className="object-cover object-center group-hover:scale-105 transition-transform duration-700" />
+                          <Image src={asset("/images/portfolio/lotus_2.jpg")} alt="Lotus Exige 2" fill className="object-cover object-center group-hover:scale-105 transition-transform duration-700" />
                        </div>
                      </div>
                   </div>
@@ -247,25 +248,25 @@ const BentoCard = ({
                   <div className="flex-[1.2] relative bg-black/20 rounded-3xl p-4 flex flex-col gap-4 min-h-[400px]">
                      <div className="grid grid-cols-2 md:grid-cols-3 gap-4 h-full">
                        <div className="col-span-2 md:col-span-3 relative rounded-2xl overflow-hidden shadow-xl border border-white/10 group h-64 md:h-80">
-                          <Image src="/images/portfolio/tea_bar/373318113550605.602a88dd76e08.jpg" alt="Eco Cosmetics Main" fill className="object-cover object-center group-hover:scale-105 transition-transform duration-700" />
+                          <Image src={asset("/images/portfolio/tea_bar/373318113550605.602a88dd76e08.jpg")} alt="Eco Cosmetics Main" fill className="object-cover object-center group-hover:scale-105 transition-transform duration-700" />
                        </div>
                        <div className="col-span-1 md:col-span-2 relative rounded-2xl overflow-hidden shadow-xl border border-white/10 group h-48 md:h-64">
-                          <Image src="/images/portfolio/tea_bar/505e83113550605.602a84f2dc19d.webp" alt="Eco Cosmetics 2" fill className="object-cover object-center group-hover:scale-105 transition-transform duration-700" />
+                          <Image src={asset("/images/portfolio/tea_bar/505e83113550605.602a84f2dc19d.webp")} alt="Eco Cosmetics 2" fill className="object-cover object-center group-hover:scale-105 transition-transform duration-700" />
                        </div>
                        <div className="col-span-1 md:col-span-1 relative rounded-2xl overflow-hidden shadow-xl border border-white/10 group h-48 md:h-64">
-                          <Image src="/images/portfolio/tea_bar/0f22f4113550605.602a84f2d6c86.jpg" alt="Eco Cosmetics 3" fill className="object-cover object-center group-hover:scale-105 transition-transform duration-700" />
+                          <Image src={asset("/images/portfolio/tea_bar/0f22f4113550605.602a84f2d6c86.jpg")} alt="Eco Cosmetics 3" fill className="object-cover object-center group-hover:scale-105 transition-transform duration-700" />
                        </div>
                        <div className="col-span-1 md:col-span-1 relative rounded-2xl overflow-hidden shadow-xl border border-white/10 group h-48 md:h-64">
-                          <Image src="/images/portfolio/tea_bar/585508113550605.602a8c871377e.jpg" alt="Eco Cosmetics 4" fill className="object-cover object-center group-hover:scale-105 transition-transform duration-700" />
+                          <Image src={asset("/images/portfolio/tea_bar/585508113550605.602a8c871377e.jpg")} alt="Eco Cosmetics 4" fill className="object-cover object-center group-hover:scale-105 transition-transform duration-700" />
                        </div>
                        <div className="col-span-1 md:col-span-2 relative rounded-2xl overflow-hidden shadow-xl border border-white/10 group h-48 md:h-64">
-                          <Image src="/images/portfolio/tea_bar/b31ee4113550605.602a84f25c7df.jpg" alt="Eco Cosmetics 5" fill className="object-cover object-center group-hover:scale-105 transition-transform duration-700" />
+                          <Image src={asset("/images/portfolio/tea_bar/b31ee4113550605.602a84f25c7df.jpg")} alt="Eco Cosmetics 5" fill className="object-cover object-center group-hover:scale-105 transition-transform duration-700" />
                        </div>
                        <div className="col-span-1 md:col-span-2 relative rounded-2xl overflow-hidden shadow-xl border border-white/10 group h-48 md:h-64">
-                          <Image src="/images/portfolio/tea_bar/b9c12e113550605.602a84f2d7ae2.jpg" alt="Eco Cosmetics 6" fill className="object-cover object-center group-hover:scale-105 transition-transform duration-700" />
+                          <Image src={asset("/images/portfolio/tea_bar/b9c12e113550605.602a84f2d7ae2.jpg")} alt="Eco Cosmetics 6" fill className="object-cover object-center group-hover:scale-105 transition-transform duration-700" />
                        </div>
                        <div className="col-span-1 md:col-span-1 relative rounded-2xl overflow-hidden shadow-xl border border-white/10 group h-48 md:h-64">
-                          <Image src="/images/portfolio/tea_bar/b8f7e1113550605.602a8dd772c3e.jpg" alt="Eco Cosmetics 7" fill className="object-cover object-center group-hover:scale-105 transition-transform duration-700" />
+                          <Image src={asset("/images/portfolio/tea_bar/b8f7e1113550605.602a8dd772c3e.jpg")} alt="Eco Cosmetics 7" fill className="object-cover object-center group-hover:scale-105 transition-transform duration-700" />
                        </div>
                      </div>
                   </div>
@@ -273,10 +274,10 @@ const BentoCard = ({
                   <div className="flex-[1.2] relative bg-black/20 rounded-3xl p-4 flex flex-col gap-4 h-max">
                      <div className="flex flex-col gap-4">
                        <div className="relative rounded-2xl overflow-hidden shadow-xl border border-white/10 group">
-                          <Image src="/images/cases/logistic/1532d2248059303.69e8ddbdc1a99.png" alt="Зависшая ERP-система 1" width={1600} height={900} className="w-full h-auto block group-hover:scale-105 transition-transform duration-700" />
+                          <Image src={asset("/images/cases/logistic/1532d2248059303.69e8ddbdc1a99.png")} alt="Зависшая ERP-система 1" width={1600} height={900} className="w-full h-auto block group-hover:scale-105 transition-transform duration-700" />
                        </div>
                        <div className="relative rounded-2xl overflow-hidden shadow-xl border border-white/10 group">
-                          <Image src="/images/cases/logistic/4f6bc6248059303.69e8e0fa4bc68.png" alt="Зависшая ERP-система 2" width={1600} height={900} className="w-full h-auto block group-hover:scale-105 transition-transform duration-700" />
+                          <Image src={asset("/images/cases/logistic/4f6bc6248059303.69e8e0fa4bc68.png")} alt="Зависшая ERP-система 2" width={1600} height={900} className="w-full h-auto block group-hover:scale-105 transition-transform duration-700" />
                        </div>
                      </div>
                   </div>
