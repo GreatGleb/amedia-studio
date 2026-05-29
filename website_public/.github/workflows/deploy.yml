@@ -39,8 +39,8 @@ jobs:
           mv ./out/_next ./out/next
           # Replace all occurrences of "/_next/" with "/next/" in HTML/JS/CSS files
           find ./out -type f \( -name "*.html" -o -name "*.js" -o -name "*.css" -o -name "*.txt" \) -exec sed -i 's|/_next/|/next/|g' {} +
-          # Also replace in paths that start with /amedia-studio/_next/
-          find ./out -type f \( -name "*.html" -o -name "*.js" -o -name "*.css" -o -name "*.txt" \) -exec sed -i 's|/amedia-studio/_next/|/amedia-studio/next/|g' {} +
+          # Also replace in paths that start with /amedia-studio/out/_next/
+          find ./out -type f \( -name "*.html" -o -name "*.js" -o -name "*.css" -o -name "*.txt" \) -exec sed -i 's|/amedia-studio/out/_next/|/amedia-studio/out/next/|g' {} +
 
       - name: Add .nojekyll for GitHub Pages
         run: touch ./out/.nojekyll

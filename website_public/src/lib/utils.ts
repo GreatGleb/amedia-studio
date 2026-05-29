@@ -8,8 +8,9 @@ export function cn(...inputs: ClassValue[]) {
 /**
  * Base path for GitHub Pages deployment.
  * Must match the `basePath` in next.config.ts
+ * GitHub Pages serves from repo root, but project is in website_public/out/
  */
-export const BASE_PATH = "/amedia-studio";
+export const BASE_PATH = "/amedia-studio/out";
 
 /**
  * Prefix a path with the base path for static assets.
