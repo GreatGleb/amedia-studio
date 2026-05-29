@@ -3,7 +3,8 @@
  * 1. Runs next build
  * 2. Renames _next → next (GitHub Pages ignores _ folders)
  * 3. Fixes all _next references in HTML/JS/CSS/TXT files
- * 4. Creates .nojekyll file
+ * 4. Copies out/* to repository root
+ * 5. Creates .nojekyll in root
  *
  * Usage: node scripts/deploy.js
  */
@@ -14,6 +15,11 @@ const path = require("path");
 
 const ROOT = path.resolve(__dirname, "..");
 const OUT = path.join(ROOT, "out");
+
+// Files/folders to NOT copy from out/ to root (they belong to the project itself)
+const SKIP_COPY = new Set([
+  "next", // renamed from _next — will be copied
+]);
 
 function run(cmd) {
   console.log(`> ${cmd}`);
@@ -56,6 +62,27 @@ function fixReferences(dir) {
   return count;
 }
 
+function copyOutToRoot(srcDir, destDir) {
+  const entries = fs.readdirSync(srcDir, { withFileTypes: true });
+  let count = 0;
+  for (const entry of entries) {
+    const srcPath = path.join(srcDir, entry.name);
+    const destPath = path.join(destDir, entry.name);
+    if (entry.isDirectory()) {
+      // Remove existing destination dir first to avoid mixing old files
+      if (fs.existsSync(destPath)) {
+        fs.rmSync(destPath, { recursive: true, force: true });
+      }
+      fs.cpSync(srcPath, destPath, { recursive: true });
+      count++;
+    } else {
+      fs.copyFileSync(srcPath, destPath);
+      count++;
+    }
+  }
+  return count;
+}
+
 function main() {
   console.log("🚀 Deploying to GitHub Pages...\n");
 
@@ -72,13 +99,21 @@ function main() {
   const fixed = fixReferences(OUT);
   console.log(`  ✅ Fixed ${fixed} files`);
 
-  // Step 4: Create .nojekyll
-  console.log("\n📄 Step 4: Creating .nojekyll...");
-  fs.writeFileSync(path.join(OUT, ".nojekyll"), "");
-  console.log("  ✅ Created out/.nojekyll");
+  // Step 4: Copy out/* → repository root
+  console.log("\n📂 Step 4: Copying out/* to repository root...");
+  const copied = copyOutToRoot(OUT, ROOT);
+  console.log(`  ✅ Copied ${copied} items to root`);
 
-  console.log(`\n✅ Done! Push the contents of "out/" to GitHub Pages.`);
-  console.log(`   cd out && git add -A && git commit -m "deploy" && git push`);
+  // Step 5: Create .nojekyll in root
+  console.log("\n📄 Step 5: Creating .nojekyll...");
+  fs.writeFileSync(path.join(ROOT, ".nojekyll"), "");
+  console.log("  ✅ Created .nojekyll in root");
+
+  console.log(`\n✅ Done! Now push everything to GitHub:`);
+  console.log(`   git add -A`);
+  console.log(`   git commit -m "deploy"`);
+  console.log(`   git push`);
+  console.log(`\n   GitHub Pages will serve from: https://greatgleb.github.io/amedia-studio/`);
 }
 
 main();

@@ -2,12 +2,12 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   output: "export",
-  // GitHub Pages is configured to serve from /website_public/out/
-  basePath: "/amedia-studio/website_public/out",
+  // GitHub Pages serves from repository root: https://greatgleb.github.io/amedia-studio/
+  basePath: "/amedia-studio",
   // GitHub Pages ignores folders starting with _ (like _next).
-  // We set assetPrefix so Next.js generates /amedia-studio/website_public/out/next/... paths,
-  // then in deploy.yml we rename _next -> next to match.
-  assetPrefix: "/amedia-studio/website_public/out",
+  // We set assetPrefix so Next.js generates /amedia-studio/next/... paths,
+  // then deploy.js renames _next -> next to match.
+  assetPrefix: "/amedia-studio",
   images: {
     remotePatterns: [
       {
