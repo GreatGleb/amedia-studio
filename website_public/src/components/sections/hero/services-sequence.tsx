@@ -7,6 +7,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import { useTranslation } from "@/context/language-context";
 import { ScrollDownArrow } from "@/components/ui/scroll-down-arrow";
+import { asset } from "@/lib/utils";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -21,7 +22,7 @@ export function ServicesSequence() {
 
   const { canvasRef, containerRef } = useHeroSequence({
     framesCount: 17,
-    imagesPath: "/hero-sequence",
+    imagesPath: asset("/hero-sequence"),
   });
 
   // Refs
