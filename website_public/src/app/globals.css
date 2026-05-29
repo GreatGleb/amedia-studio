@@ -60,3 +60,48 @@ html.lenis {
 .lenis-scrolling iframe {
   pointer-events: none;
 }
+
+/* ─── Responsive & Touch Enhancements ─────────────────────────────────── */
+
+/* Remove tap highlight on mobile (we style our own focus states) */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Eliminate 300ms tap delay on interactive elements */
+button,
+a,
+input,
+textarea,
+select,
+[role="button"] {
+  touch-action: manipulation;
+}
+
+/* Ensure minimum touch target size for all interactive elements */
+@media (max-width: 767px) {
+  button,
+  a,
+  [role="button"],
+  input,
+  select,
+  textarea {
+    /* Minimum 44px touch target — applied via min-height where possible */
+    cursor: pointer;
+  }
+
+  /* Prevent pull-to-refresh interference with scroll animations */
+  body {
+    overscroll-behavior: none;
+  }
+}
+
+/* Smooth scrolling for the whole page */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Prevent text size adjustment on orientation change */
+html {
+  -webkit-text-size-adjust: 100%;
+}

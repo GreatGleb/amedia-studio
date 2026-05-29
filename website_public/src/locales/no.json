@@ -1,9 +1,8 @@
 {
   "nav": {
-    "vision": "Visjon",
-    "roi": "ROI",
+    "about": "Om Oss",
+    "services": "Tjenester",
     "portfolio": "Portefølje",
-    "contact": "Kontakt",
     "team": "Team"
   },
   "labels": {
@@ -14,23 +13,56 @@
   },
   "portfolio": {
     "title": "Dine fremtidige \n resultater",
-    "subtitle": "Sveip til høyre for å se hva vi kan skape for din bedrift.",
-    "projects": [
+    "subtitle": "Vi leverer materialiserte forretningsresultater, ikke bare vakre bilder.",
+    "cta": "Jeg vil ha samme resultat",
+    "bento_cases": [
       {
-        "title": "Nordisk Eleganse",
-        "category": "Branding"
+        "id": 1,
+        "title": "B2B & Enterprise Løsninger",
+        "promise": "Din bedrift fungerer som en sveitsisk klokke med null menneskelige feil.",
+        "case_title": "Skandinavisk Forhandler",
+        "case_desc": "**Situasjon (Situation):** En stor skandinavisk forhandler med en omsetning på over €50 millioner sto overfor et kritisk skaleringsproblem. Logistikkprosessene ble administrert manuelt gjennom fragmenterte Excel-regneark og et utdatert ERP-system som var ute av stand til å håndtere det voksende ordrevolumet i sanntid. Dette førte til hyppige leveringsforsinkelser og en høy feilprosent ved plukking. Gjennomsnittlig behandlingstid for en enkelt ordre var rundt 4 timer, noe som førte til alvorlig misnøye blant B2B-kunder og massiv frys av lagerkapital.\n\n**Oppgave (Task):** Vi trengte å fullstendig tenke nytt og digitalisere hele syklusen for Supply Chain Management. Hovedmålet var å eliminere menneskelige feil, samle spredte datakilder i ett felles system, og bygge et ultraraskt, feilsikkert grensesnitt for ledere og logistikkeksperter. Systemet måtte tåle spissbelastninger under salgssesonger, samtidig som det ga 100% åpenhet.\n\n**Handling (Action):** Vi utviklet en skreddersydd ERP-adapter og et interaktivt logistikk-dashbord fra bunnen av. Vi valgte Next.js 14 for frontend (for øyeblikkelige responstider via SSR) og NestJS for en robust backend. Vi etablerte en toveis synkronisering med deres eksisterende system via REST API. Grensesnittet hadde et rollebasert system: ordreplukkere brukte en mobilløsning med strekkodeskannere, mens toppledelsen fikk tilgang til sanntidsanalyser. Alle rutingoperasjoner ble fullstendig automatisert.\n\n**Resultat (Result):** Implementeringen revolusjonerte selskapets operasjonelle evner:\n• Manuell behandlingstid for en enkelt ordre falt fra 4 timer til bare 12 minutter (95% akselerasjon).\n• Driftskostnadene (OPEX) innen logistikk ble redusert med 35% i første kvartal.\n• Plukknøyaktigheten nådde 99.8%, noe som kuttet returraten med 70%.\n• Selskapet behandlet 3 ganger så mange ordrer med samme bemanning, og oppnådde full avkastning (ROI) på bare 4.5 måneder.",
+        "metric": "35% reduksjon i OPEX, manuell behandling fra 4 timer til 12 minutter."
       },
       {
-        "title": "Digital Standard",
-        "category": "Webutvikling"
+        "id": 2,
+        "title": "B2C Forbrukertjenester",
+        "promise": "Ditt produkt tåler et massivt publikum og gjør at brukerne forelsker seg ved første klikk.",
+        "case_title": "Premium Møbelmarkedsplass",
+        "case_desc": "**Situasjon (Situation):** Et designmøbelmerke gikk inn i et svært konkurranseutsatt online marked. Deres gamle plattform var ekstremt treg på grunn av tunge 3D-modeller og høyoppløselige renderinger (lastetid > 8 sekunder). Dette førte til en katastrofal fluktfrekvens på mobil – brukerne forlot siden før katalogen i det hele tatt var lastet inn.\n\n**Oppgave (Task):** Utvikle en premium markedsplass med lynrask ytelse. Grensesnittet måtte formidle estetikken til eksklusivt interiør gjennom minimalisme og myke animasjoner, samtidig som det uanstrengt håndterte titusenvis av daglige besøkende uten en eneste forsinkelse.\n\n**Handling (Action):** Vi implementerte en Headless-arkitektur ved hjelp av Next.js med Server-Side Rendering (SSR). Alle tunge mediefiler ble rutet gjennom et globalt CDN med on-the-fly formatoptimalisering. For UI laget vi et skreddersydd skandinavisk designsystem: komplekse mikrointeraksjoner, jevn rulling og et asymmetrisk produktnett. Handlekurv og kasse ble ombygd til en sømløs SPA-flyt.\n\n**Resultat (Result):**\n• Umiddelbar respons: Largest Contentful Paint (LCP) < 0.8 sekunder, serverrespons (TTFB) < 100ms.\n• Plattformen opprettholder enkelt 50.000+ daglige økter med null ytelsesreduksjon.\n• Konvertering for 'legg i handlekurv' økte med 2.5x takket være den friksjonsfrie, premium brukeropplevelsen.\n• Totalt nettsalg vokste med 140% de første 3 månedene etter lansering.",
+        "metric": "140% salgsvekst, LCP < 0.8s med 50.000+ daglige økter."
       },
       {
-        "title": "Fokus Strategi",
-        "category": "Markedsføring"
+        "id": 3,
+        "title": "Renovering & Support",
+        "promise": "Din nettside blir kvitt feil, gammel kode, akselererer 5x og begynner å selge.",
+        "case_title": "Renovering av E-handelsplattform",
+        "case_desc": "**Situasjon (Situation):** En stor nettforhandler led av teknisk gjeld. Nettstedet kjørte på en utdatert monolittisk arkitektur. På grunn av feil og gammel kode tok det over 12 sekunder å laste sider, og handlekurven frøs ofte. Lighthouse-ytelsesscoren var på skarve 24, noe som førte til massivt frafall av kunder i kassen.\n\n**Oppgave (Task):** Redde salget gjennom en total refaktorering av plattformen. Vi måtte eliminere feil, migrere butikken til en moderne teknologistakk uten å stoppe salget, og akselerere sidelastingstidene med minst 5x.\n\n**Handling (Action):** Vi gjennomførte en dyp koderevisjon og startet en trinnvis migrering. Frontend ble fullstendig omskrevet i React. Den tunge databasen ble optimalisert: vi implementerte indeksering og satte opp Redis-bufring. Utsjekkingsprosessen ble redesignet fra bunnen av for å være friksjonsfri.\n\n**Resultat (Result):**\n• Nettstedets hastighet økte 5x: lastetidene falt til 2,4 sekunder.\n• Den tekniske Lighthouse-scoren skjøt i været fra 24 til 92.\n• Frafallet i betalingsfasen ble redusert med 48%.\n• Plattformen begynte å selge konsekvent, og tjente inn renoveringsinvesteringen på bare 2 måneder.",
+        "metric": "Lighthouse score 24 -> 92, frafall i kassen redusert med 48%."
       },
       {
-        "title": "Visjonær Teknologi",
-        "category": "SaaS"
+        "id": 4,
+        "title": "Kreativ Videoproduksjon",
+        "promise": "Din merkevare ser premium ut, bygger tillit og samler millioner av organiske visninger.",
+        "case_title": "Cinematisk Bilreklame",
+        "case_desc": "**Situasjon (Situation):** En premium sportsbilforhandler kontaktet oss for å lage en aggressiv, image-drevet promovideo for å selge en eksklusiv Lotus Exige. Standard studiobilder av biler klarte ikke å vekke de nødvendige følelsene hos potensielle kjøpere.\n\n**Oppgave (Task):** Utvikle et kreativt konsept og gjennomføre utendørsopptak for å oppnå et svært cinematisk utseende. Målet var å lage en dynamisk showreel for sosiale medier og en hovedvideo for nettstedets forside.\n\n**Handling (Action):** Filmingen fant sted på lukkede steder ved bruk av FPV-droner og DJI Osmo-stabiliseringssystemer, som fanget spektakulære høyhastighets overflyvninger og jevne bilder i bevegelse. I etterarbeidet ble det lagt spesiell vekt på aggressiv klipping, dyp fargekorrigering og kraftig lyddesign.\n\n**Resultat (Result):**\n• Leverte videoinnhold av premium kvalitet som perfekt reflekterer bilens ånd.\n• Kortversjoner for sosiale medier (Reels/TikTok) gikk raskt viralt og samlet over 2,5 millioner organiske visninger.\n• Publikumets engasjement økte med 320%.\n• Videoen ble et kraftig salgsverktøy som vellykket fanget oppmerksomheten til premium-segmentet.",
+        "metric": "2,5 millioner organiske visninger, 320% økning i engasjement."
+      },
+      {
+        "id": 5,
+        "title": "Totaldesign (360°)",
+        "promise": "Visuell stil utstråler pålitelighet, høy status og upåklagelig smak.",
+        "case_title": "ET Space Tea Bar & Dessert Cafe",
+        "case_desc": "**Situasjon (Situation):** ET er en ny tebar og dessertkafé, skapt som et sted hvor gjester kan fordype seg i kosmosets magi, nyte tåkeinspirerte drikker og utforske alle slags kosmiske underverker. Merket trengte en sterk visuell identitet som kunne formidle dette dristige konseptet — en koselig, men futuristisk romtemabasert dessertbar som skulle fengsle hver gjest fra første stund.\n\n**Oppgave (Task):** Utvikle en helhetlig merkevareidentitet som fanger gjestenes oppmerksomhet fra første sekund. Vi måtte skape et futuristisk designsystem som dekket interiøret, alle trykte materialer (menyer, skilting, reklamemateriell) og en unik merchandise-linje som skulle bli en selvstendig inntektskilde.\n\n**Handling (Action):** Vi utviklet et visuelt system med holografiske og spektrale trykk som forenet alle kontaktpunkter — fra menydesign til interiørelementer. Designet ble bygget rundt popkultur-maskoter: Romvesenet, Romkatten og Astronauten, som ble hovedfigurene i merchandise-kolleksjonen. Hver detalj, fra fargepaletten (dype lilla, kosmiske blåtoner, iriserende aksenter) til typografi og materialvalg, ble skapt for å skape en oppslukende interstellær atmosfære.\n\n**Resultat (Result):**\n• Skapt en oppslukende merkevareopplevelse som umiddelbart fanger publikums oppmerksomhet og driver kundestrøm.\n• Maskotbasert merchandise etablerte en stabil ekstra inntektskanal med sterk gjensalg.\n• Stedet oppnådde høy viralitet i sosiale medier takket være sin unike visuelle estetikk — gjester delte aktivt opplevelsen sin, noe som gjorde baren til et Instagram-verdig reisemål.\n• Det komplette merkevaresystemet integrerte interiørdesign, trykte materialer og merchandise sømløst i én helhetlig kosmisk identitet.",
+        "metric": "Høy viralitet i sosiale medier og en ny inntektskanal gjennom merkevaremerchandise."
+      },
+      {
+        "id": 6,
+        "title": "Krisekonsulent",
+        "promise": "Ethvert utviklingskaos blir til et stabilt produkt levert i tide.",
+        "case_title": "Fastlåst ERP-system",
+        "case_desc": "**Situasjon (Situation):** Et logistikkselskap med et komplekst forsyningskjedenettverk hadde investert tungt i å utvikle et tilpasset ERP-system for å administrere driften. Etter måneder med arbeid satt prosjektet fast på 60% fullføring — frosset i 8 måneder. Den forrige entreprenøren hadde etterlatt seg en fragmentert kodebase med kritiske arkitektoniske feil, uløste feil og ingen dokumentasjon. Det uferdige systemet skapte kaos i den daglige driften: lageransatte måtte ty til manuelle regneark, ordrebehandling ble forsinket med dager, og selskapet tapte penger på grunn av operasjonelle ineffektiviteter.\n\n**Oppgave (Task):** Gjennomføre en akutt kriserevisjon av det fastlåste produktet, identifisere alle flaskehalser og arkitektoniske hull, gjenoppbygge utviklingsprosessen fra bunnen av, og levere et fullt funksjonelt produksjonsklart ERP-system på kortest mulig tid. Målet var ikke bare å fullføre koden, men å redde hele investeringen og gjenopprette selskapets operasjonelle stabilitet.\n\n**Handling (Action):** Vårt team utførte en dyp teknisk revisjon av den eksisterende kodebasen, identifiserte kritiske blokkeringer og sikkerhetssårbarheter. Vi redesignet arkitekturen fullstendig for å håndtere høye belastninger, innførte riktig databaseindeksering og bufringslag, og implementerte en ren modulær struktur. Vi etablerte transparente Agile/Scrum-prosesser med daglige stand-ups og sprintplanlegging. De resterende 40% av funksjonaliteten ble brutt ned i prioriterte leveranser fokusert på maksimal forretningsverdi. Vi satte også opp CI/CD-pipelines og automatisert testing for å forhindre regresjon.\n\n**Resultat (Result):**\n• Prosjektet, frosset i 8 måneder av den forrige entreprenøren, ble vellykket gjenopplivet og satt i produksjon på bare 45 dager.\n• Systemstabiliteten ble fullstendig gjenopprettet med alle kritiske arkitektoniske feil eliminert.\n• Selskapet fikk full operasjonell kontroll med et fungerende logistikk-ERP, og reddet den tidligere sunkne investeringen.\n• Ordrebehandlingstiden ble redusert med 80%, og lagerstyring ble fullautomatisert og transparent.",
+        "metric": "Frosset i 8 måneder, gjenopplivet og lansert på 45 dager."
       }
     ]
   },
@@ -38,9 +70,9 @@
     "eyebrow": "Fullsyklus Forretningspartnerskap",
     "title": "Din partner for bærekraftig forretningsvekst",
     "description": "Vi analyserer dine prosesser, avdekker svake punkter i salg og markedsføring, øker fortjenesten og leder bedriften ut av kriser. Full syklus med støtte for langsiktig skalering.",
-    "cta_primary": "Book et møte",
+    "cta_primary": "Kontakt Oss",
     "cta_secondary": "ROI Kalkulator",
-    "metric_1_val": "11+ år",
+    "metric_1_val": "5 år",
     "metric_1_txt": "med bedriftsskalering",
     "metric_2_val": "300+",
     "metric_2_txt": "optimaliserte selskaper",
@@ -54,30 +86,43 @@
     "desc": "Vi hjelper merkevarer å vokse ved å kombinere strategi, kreativitet og teknologi.",
     "items": [
       {
-        "title": "Performance",
-        "desc": "Datadrevet markedsføring fokusert på målbar ROI og skalering av din bedrift."
+        "title": "Produksjon",
+        "desc": "Kinematografisk video- og fotoproduksjon. Vi skaper premium visuelt innhold som genererer millioner av organiske visninger."
       },
       {
-        "title": "Branding",
-        "desc": "Skape en unik identitet og merkevarestemme som gjør at du skiller deg ut i markedet."
+        "title": "Utvikling",
+        "desc": "Høybelastede webtjenester, bedriftsplattformer og B2B-portaler. Next.js, React, Go — teknologi som skalerer med din bedrift."
       },
       {
-        "title": "Kreativ",
-        "desc": "Visuelle konsepter og innhold som fanger oppmerksomhet og vekker følelser."
+        "title": "Markedsføring",
+        "desc": "Performance-markedsføring fokusert på målbar ROI og omsetningsvekst. Vekststrategier for skandinaviske og internasjonale markeder."
       },
       {
-        "title": "Strategi",
-        "desc": "Helhetlig langsiktig planlegging for bedriftsvekst og markedsføringsaktiviteter."
+        "title": "Rådgivning",
+        "desc": "Strategisk rådgivning og krisehåndtering. Vi gjenopptar stagnerte prosjekter, eliminerer flaskehalser og skalerer din bedrift."
       }
     ]
   },
   "about": {
-    "label": "01. Visjon",
-    "title": "Fokus til Visjon",
-    "text": "Vi forvandler fokus til visjon gjennom presis markedsføring og nordisk minimalisme."
+    "label": "01. Om Oss",
+    "title": "Fra kaos til visjon",
+    "text": "amediå er et premium skandinavisk fullsyklus digitalbyrå. Vi forvandler kaos til fungerende produkter, og fokus til en klar visjon. Ved å kombinere høyteknologisk utvikling, strategisk markedsføring, merkevarebygging og profesjonell videoproduksjon, skaper vi løsninger som skalerer din bedrift og gir målbare resultater.",
+    "stats": {
+      "years_val": "5",
+      "years_txt": "års erfaring",
+      "projects_val": "300+",
+      "projects_txt": "vellykkede prosjekter"
+    },
+    "features": {
+      "tech": "Innovasjon",
+      "tech_desc": "Banebrytende teknologi for skalerbar vekst",
+      "design": "Estetikk",
+      "design_desc": "Nordisk minimalisme og premium UX"
+    }
   },
   "roi": {
     "title": "ROI Kalkulator",
+    "description": "Estimer bedriftens vekstpotensial. Angi dine nåværende eller ønskede beregninger:\n• Leads: antall potensielle kunder per måned.\n• Konvertering: prosentandel av leads som blir til salg.\n• LTV: gjennomsnittlig inntekt per kunde over tid.\n• Budsjett: månedlige markedsføringsutgifter.\n\nSystemet vil automatisk beregne forventet inntekt og avkastning på investeringen (ROI).",
     "leads": "Leads per måned",
     "conversion": "Konverteringsfrekvens",
     "ltv": "Kunde LTV (€)",
@@ -90,10 +135,15 @@
     "title": "Legg igjen en forespørsel",
     "step_info": "Siste steg: hvordan kontakter vi deg?",
     "name": "Ditt navn",
-    "telegram": "Telegram / Telefon",
+    "name_placeholder": "Skriv inn navnet ditt",
+    "telegram": "Telefonnummer (vi kontakter deg via meldingsapp eller ringer)",
+    "phone_placeholder": "Skriv inn telefonnummeret — vi kontakter deg via meldingsapp eller telefon",
+    "message": "Prosjektdetaljer",
+    "message_placeholder": "Fortell oss om prosjektet, tidslinjen eller noe annet du vil at vi skal vite",
     "submit": "Send forespørsel",
+    "submit_error": "Forespørselen kunne ikke sendes. Prøv igjen.",
     "success": "Suksess!",
-    "success_text": "Vi har mottatt din forespørsel. Vår strateg kontakter deg på Telegram innen den neste hunen.",
+    "success_text": "Vi har mottatt din forespørsel. Vår strateg kontakter deg via din foretrukne meldingsapp eller på telefon innen den neste timen.",
     "back": "Tilbake",
     "questions": {
       "service": "Hvilken tjeneste er du interessert i?",
@@ -103,16 +153,20 @@
     "options": {
       "performance": "Performance Marketing",
       "web": "Webutvikling",
-      "branding": "Branding",
+      "branding": "SMM & PR",
+      "production": "Videoproduksjon",
+      "consulting": "Rådgivning",
       "partnership": "Fullskala partnerskap",
-      "budget_1": "< 2000€",
-      "budget_2": "2000€ - 5000€",
-      "budget_3": "5000€ - 10000€",
-      "budget_4": "10000€+",
-      "goal_1": "Øke leads",
-      "goal_2": "Brand awareness",
-      "goal_3": "Ny nettside",
-      "goal_4": "Skalering"
+      "budget_1": "< 500€",
+      "budget_2": "500€ - 1000€",
+      "budget_3": "1000€ - 2000€",
+      "budget_4": "2000€+",
+      "goal_1": "Ny nettside",
+      "goal_2": "Håndtering av sosiale medier",
+      "goal_3": "Øke salget",
+      "goal_4": "Komplekse bedriftsløsninger",
+      "goal_5": "Produksjon av videoinnhold",
+      "goal_6": "Annet"
     }
   },
   "footer": {
@@ -137,5 +191,43 @@
     "privacy": "Personvern",
     "terms": "Vilkår for bruk",
     "rights": "© 2026 amediå agency. Alle rettigheter reservert."
+  },
+  "team": {
+    "roles": {
+      "techLead": "Teknisk Leder",
+      "generalDirector": "Daglig leder",
+      "projectManager": "Prosjektleder"
+    },
+    "desc": {
+      "techLead": "Teknisk implementering og prosjektarkitektur.",
+      "generalDirector": "Strategisk ledelse og byråutvikling.",
+      "projectManager": "Prosesskoordinering og prosjektledelse."
+    }
+  },
+  "reviews": {
+    "title": "Anmeldelser",
+    "subtitle": "Hva partnere og kunder sier om oss. Ærlige meninger om resultatene av samarbeidet vårt.",
+    "items": [
+      {
+        "client": "Lars Eriksen",
+        "company": "TechCorp",
+        "text": "amediå-teamet overgikk alle våre forventninger. De fullførte ikke bare oppgaven — de fordypet seg dypt i våre forretningsprosesser og foreslo en elegant løsning som sparte oss for måneder med arbeid."
+      },
+      {
+        "client": "Thomas Müller",
+        "company": "Retail Group",
+        "text": "Fantastisk oppmerksomhet på detaljer og dyp forståelse av moderne design. Vår nye nettside har blitt en ekte magnet for kunder."
+      },
+      {
+        "client": "Ingrid Solberg",
+        "company": "Startup Hub",
+        "text": "Perfekt kommunikasjon i alle faser. Alt er transparent, tydelig og nøyaktig i tide. Ekte profesjonelle innen sitt felt."
+      },
+      {
+        "client": "Sophie Laurent",
+        "company": "FinTech Pro",
+        "text": "amediås minimalistiske tilnærming til design er akkurat det vi lette etter. Ingen visuell støy, bare ren funksjon og estetikk."
+      }
+    ]
   }
 }

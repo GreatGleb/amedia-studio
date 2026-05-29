@@ -1,9 +1,8 @@
 {
   "nav": {
-    "vision": "Vision",
-    "roi": "ROI",
+    "about": "About Us",
+    "services": "Services",
     "portfolio": "Portfolio",
-    "contact": "Contact",
     "team": "Team"
   },
   "labels": {
@@ -14,23 +13,56 @@
   },
   "portfolio": {
     "title": "Your Future \n Results",
-    "subtitle": "Scroll right to see what we can create for your business.",
-    "projects": [
+    "subtitle": "We deliver materialized business results, not just beautiful pictures.",
+    "cta": "I want the same result",
+    "bento_cases": [
       {
-        "title": "Nordic Elegance",
-        "category": "Branding"
+        "id": 1,
+        "title": "B2B & Enterprise Solutions",
+        "promise": "Your business works like a Swiss watch with zero human error.",
+        "case_title": "Scandinavian Retailer",
+        "case_desc": "**Situation:** A major Scandinavian retailer with a turnover exceeding €50 million faced a critical scaling bottleneck. Logistics processes were managed manually through fragmented Excel spreadsheets and an outdated on-premise ERP system, completely incapable of handling the growing order volume in real time. This resulted in frequent supply delays, lost inventory in warehouses, and a high error rate during order picking. The average processing time for a single order was around 4 hours, leading to severe dissatisfaction among B2B clients and massive frozen inventory capital.\n\n**Task:** We needed to completely rethink and digitize the entire Supply Chain Management cycle. The main objective was to eliminate human error, unify disparate data sources into a single source of truth, and build an ultra-fast, fail-safe interface for managers, warehouse staff, and logisticians. The system had to withstand peak loads during sales seasons while providing 100% transparency at every stage.\n\n**Action:** We engineered a custom cloud-native ERP adapter and an interactive logistics dashboard from the ground up. For the architecture, we selected Next.js 14 for the frontend (ensuring instantaneous interface response times via SSR) and NestJS for a robust backend. We established a complex two-way synchronization layer with their legacy ERP via REST API. The new interface featured role-based access: order pickers utilized a mobile-first PWA with barcode scanners, while management gained access to real-time predictive analytics. All routing operations were fully automated.\n\n**Result:** The implementation revolutionized operational capabilities:\n• Manual processing and validation time for a single order dropped from 4 hours to just 12 minutes (95% acceleration).\n• Operational expenses (OPEX) in logistics were reduced by 35% in the first quarter post-launch.\n• Order picking accuracy reached 99.8%, cutting return rates by 70%.\n• The company processed 3x more orders without increasing headcount, achieving full Return on Investment (ROI) in just 4.5 months.",
+        "metric": "35% reduction in OPEX, manual processing from 4 hours to 12 minutes."
       },
       {
-        "title": "Digital Standard",
-        "category": "Web Development"
+        "id": 2,
+        "title": "B2C Consumer Services",
+        "promise": "Your product withstands massive audiences and makes users fall in love at first click.",
+        "case_title": "Premium Furniture Marketplace",
+        "case_desc": "**Situation:** A designer furniture brand was entering a highly competitive online market. Their legacy platform was extremely slow due to the heavy reliance on 3D models and high-res renders (page load times > 8 seconds). This resulted in a catastrophic mobile bounce rate—users left before the catalog even loaded.\n\n**Task:** Develop a premium marketplace with lightning-fast performance. The interface had to convey the aesthetics of high-end interiors through minimalism and smooth animations, while effortlessly handling tens of thousands of daily visitors without a single lag.\n\n**Action:** We implemented a Headless architecture using Next.js with Server-Side Rendering (SSR). All heavy media assets were routed through a global CDN with on-the-fly format optimization. For the UI, we crafted a custom Scandinavian design system: complex micro-interactions, fluid scrolling, and an asymmetrical product grid. The cart and checkout were re-engineered into a seamless SPA flow.\n\n**Result:**\n• Instant response: Largest Contentful Paint (LCP) < 0.8 seconds, server response (TTFB) < 100ms.\n• The platform easily sustains 50,000+ daily sessions with zero performance degradation.\n• Add-to-cart conversion increased by 2.5x thanks to the frictionless, premium UX.\n• Total online sales grew by 140% in the first 3 months post-launch.",
+        "metric": "140% sales growth, LCP < 0.8s with 50,000+ daily sessions."
       },
       {
-        "title": "Focus Strategy",
-        "category": "Marketing"
+        "id": 3,
+        "title": "Renovation & Support",
+        "promise": "Your site gets rid of bugs, legacy code, accelerates 5x and starts selling.",
+        "case_title": "E-commerce Platform Renovation",
+        "case_desc": "**Situation:** A major online retailer was suffering from technical debt. The website was running on an outdated monolithic architecture. Due to bugs and legacy code, pages took over 12 seconds to load, and the cart frequently froze. The Lighthouse performance score was a mere 24, leading to massive customer drop-off at checkout.\n\n**Task:** Rescue sales through a total platform refactoring. We needed to eliminate bugs, migrate the store to a modern tech stack without halting sales, and accelerate page load times by at least 5x.\n\n**Action:** We conducted a deep code audit and initiated a phased migration. The frontend was completely rewritten in React. The heavy database was optimized: we implemented indexing and set up Redis caching. The checkout process was redesigned from scratch to be frictionless.\n\n**Result:**\n• Site speed increased 5x: load times dropped to 2.4 seconds.\n• The technical Lighthouse score skyrocketed from 24 to 92.\n• Drop-off at the payment stage was reduced by 48%.\n• The platform started selling consistently, fully recouping the renovation investment in just 2 months.",
+        "metric": "Lighthouse score 24 -> 92, checkout drop-off reduced by 48%."
       },
       {
-        "title": "Visionary Tech",
-        "category": "SaaS"
+        "id": 4,
+        "title": "Creative Video Production",
+        "promise": "Your brand looks premium, builds trust, and gathers millions of organic views.",
+        "case_title": "Cinematic Car Commercial",
+        "case_desc": "**Situation:** A premium sports car dealership approached us to create an aggressive, image-driven promo video to help sell an exclusive Lotus Exige. Standard studio car photos failed to evoke the necessary emotions from potential buyers.\n\n**Task:** Develop a creative concept and execute location shoots to achieve a highly cinematic look. The goal was to create a dynamic showreel for social media and a hero video for the website's landing page.\n\n**Action:** Filming took place at closed locations using FPV drones and DJI Osmo stabilization systems, capturing spectacular high-speed fly-throughs and smooth motion shots. In post-production, special attention was given to aggressive editing, deep color grading, and powerful sound design.\n\n**Result:**\n• Delivered premium-quality video content perfectly reflecting the car's spirit.\n• Social media cuts (Reels/TikTok) quickly went viral, gathering over 2.5 million organic views.\n• Audience engagement increased by 320%.\n• The video became a powerful sales tool, successfully capturing the attention of the premium audience segment.",
+        "metric": "2.5M organic views, 320% engagement growth."
+      },
+      {
+        "id": 5,
+        "title": "Turnkey Design (360°)",
+        "promise": "Visual style broadcasts reliability, high status, and impeccable taste.",
+        "case_title": "ET Space Tea Bar & Dessert Cafe",
+        "case_desc": "**Situation:** ET is a new tea bar and dessert cafe conceived as a space where visitors can immerse themselves in the magic of the cosmos, enjoy nebula-inspired drinks, and explore all kinds of cosmic wonders. The brand needed a strong visual identity capable of conveying this bold concept — a cozy yet futuristic space-themed dessert bar that would captivate every guest from the moment they walked in.\n\n**Task:** Develop a cohesive brand identity that grabs guests' attention from the very first second. We needed to create a futuristic design system covering the interior space, all printed materials (menus, signage, promotional materials), and a unique line of merchandise that would become a standalone revenue stream.\n\n**Action:** We developed a visual system using holographic and spectral prints that unified every touchpoint — from menu design to interior elements. The design was built around pop-culture mascots: the Alien, the Space Cat, and the Astronaut, which became the central characters of the merchandise line. Every detail, from the color palette (deep purples, cosmic blues, iridescent accents) to the typography and material choices, was crafted to create an immersive interstellar atmosphere.\n\n**Result:**\n• Created an immersive branding experience that immediately captures audience attention and drives foot traffic.\n• The mascot-based merchandise line established a stable additional monetization channel with strong repeat sales.\n• The venue achieved high virality on social media thanks to its unique visual aesthetics — guests actively shared their experience, turning the bar into an Instagram-worthy destination.\n• The complete brand system seamlessly integrated interior design, print materials, and merch into one cohesive cosmic identity.",
+        "metric": "High social media virality and a new monetization channel through branded merchandise."
+      },
+      {
+        "id": 6,
+        "title": "Crisis Consulting",
+        "promise": "Any development chaos turns into a stable product delivered on time.",
+        "case_title": "Stalled ERP System",
+        "case_desc": "**Situation:** A logistics company with a complex supply chain network had invested heavily in developing a custom ERP system to manage its operations. However, after months of work, the project was stuck at 60% completion — frozen for 8 months. The previous contractor had left behind a fragmented codebase with critical architectural flaws, unresolved bugs, and no documentation. The unfinished system caused chaos in daily operations: warehouse staff resorted to manual spreadsheets, order processing was delayed by days, and the company was bleeding money due to operational inefficiencies.\n\n**Task:** Conduct an urgent crisis audit of the stalled product, identify all bottlenecks and architectural gaps, rebuild the development process from scratch, and deliver a fully functional production-ready ERP system in the shortest possible time. The goal was not just to finish the code, but to rescue the entire investment and restore the company's operational stability.\n\n**Action:** Our team performed a deep technical audit of the existing codebase, identifying critical blockers and security vulnerabilities. We completely re-architected the system to handle high loads, introduced proper database indexing and caching layers, and implemented a clean modular structure. We established transparent Agile/Scrum processes with daily stand-ups and sprint planning. The remaining 40% of functionality was broken down into prioritized deliverables focused on maximum business value. We also set up CI/CD pipelines and automated testing to prevent regression.\n\n**Result:**\n• The project, frozen for 8 months by the previous contractor, was successfully revived and deployed to production in just 45 days.\n• System stability was fully restored with all critical architectural flaws eliminated.\n• The company regained full operational control with a working logistics ERP, saving the previously sunk investment.\n• Order processing time was reduced by 80%, and inventory tracking became fully automated and transparent.",
+        "metric": "Frozen for 8 months, resurrected and deployed in 45 days."
       }
     ]
   },
@@ -38,9 +70,9 @@
     "eyebrow": "Full-Cycle Business Partnership",
     "title": "Your Partner for Sustainable Business Growth",
     "description": "We analyze your operations, identify weak spots in sales and marketing, and design strategies to boost profit. From crisis management to long-term scaling, we guide your business at every stage.",
-    "cta_primary": "Book a Meeting",
+    "cta_primary": "Contact Us",
     "cta_secondary": "ROI Calculator",
-    "metric_1_val": "11+ Years",
+    "metric_1_val": "5 Years",
     "metric_1_txt": "of scaling businesses",
     "metric_2_val": "300+",
     "metric_2_txt": "optimized companies",
@@ -54,30 +86,43 @@
     "desc": "We help brands grow by combining strategy, creativity, and technology.",
     "items": [
       {
-        "title": "Performance",
-        "desc": "Data-driven marketing campaigns focused on measurable ROI and scaling your business."
+        "title": "Production",
+        "desc": "Cinematic video and photo production. We create premium visual content that drives millions of organic views and builds brand trust."
       },
       {
-        "title": "Branding",
-        "desc": "Creating a unique identity and brand voice that makes you stand out in the market."
+        "title": "Development",
+        "desc": "High-load web services, enterprise platforms, and B2B portals. Next.js, React, Go — technology that scales with your business."
       },
       {
-        "title": "Creative",
-        "desc": "Visual concepts and content that capture attention and evoke emotions."
+        "title": "Marketing",
+        "desc": "Performance marketing focused on measurable ROI and revenue growth. Growth strategies for Scandinavian and international markets."
       },
       {
-        "title": "Strategy",
-        "desc": "Comprehensive long-term planning for business growth and marketing activities."
+        "title": "Consulting",
+        "desc": "Strategic consulting and crisis management. We unfreeze stalled projects, eliminate bottlenecks, and scale your business."
       }
     ]
   },
   "about": {
-    "label": "01. Vision",
-    "title": "Focus to Vision",
-    "text": "We transform focus into vision through precise marketing and Nordic minimalism."
+    "label": "01. About Us",
+    "title": "From chaos to vision",
+    "text": "amediå is a premium Scandinavian full-cycle digital agency. We turn chaos into working products and focus into a clear vision. By combining high-tech development, strategic marketing, branding, and professional video production, we build solutions that scale your business and deliver measurable results.",
+    "stats": {
+      "years_val": "5",
+      "years_txt": "years of experience",
+      "projects_val": "300+",
+      "projects_txt": "successful projects"
+    },
+    "features": {
+      "tech": "Innovation",
+      "tech_desc": "Cutting-edge tech for scalable growth",
+      "design": "Aesthetics",
+      "design_desc": "Nordic minimalism & premium UX"
+    }
   },
   "roi": {
     "title": "ROI Calculator",
+    "description": "Estimate your business growth potential. Set your current or target metrics:\n• Leads: number of potential clients per month.\n• Conversion: percentage of leads that turn into sales.\n• LTV: average revenue per client over their lifetime.\n• Budget: monthly marketing expenses.\n\nThe system will automatically calculate your expected revenue and return on investment (ROI).",
     "leads": "Leads per month",
     "conversion": "Conversion Rate",
     "ltv": "Customer LTV (€)",
@@ -90,10 +135,15 @@
     "title": "Submit Request",
     "step_info": "Final step: how do we contact you?",
     "name": "Your Name",
-    "telegram": "Telegram / Phone",
+    "name_placeholder": "Enter your name",
+    "telegram": "Phone number (we'll contact you via messenger or call)",
+    "phone_placeholder": "Enter phone number — we’ll contact you by messenger or call",
+    "message": "Project details",
+    "message_placeholder": "Tell us about your project, timeline, or anything else you'd like us to know",
     "submit": "Submit Application",
+    "submit_error": "Failed to send the request. Please try again.",
     "success": "Success!",
-    "success_text": "We have received your application. Our strategist will contact you on Telegram within the next hour.",
+    "success_text": "We have received your application. Our strategist will contact you through your preferred messenger or by phone within the next hour.",
     "back": "Back",
     "questions": {
       "service": "Which service are you interested in?",
@@ -103,16 +153,20 @@
     "options": {
       "performance": "Performance Marketing",
       "web": "Web Development",
-      "branding": "Branding",
+      "branding": "SMM & PR",
+      "production": "Video Production",
+      "consulting": "Consulting",
       "partnership": "Full Scale Partnership",
-      "budget_1": "< 2000€",
-      "budget_2": "2000€ - 5000€",
-      "budget_3": "5000€ - 10000€",
-      "budget_4": "10000€+",
-      "goal_1": "Lead Generation",
-      "goal_2": "Brand Awareness",
-      "goal_3": "New Website",
-      "goal_4": "Scaling"
+      "budget_1": "< 500€",
+      "budget_2": "500€ - 1000€",
+      "budget_3": "1000€ - 2000€",
+      "budget_4": "2000€+",
+      "goal_1": "New Website",
+      "goal_2": "Social Media Management",
+      "goal_3": "Increase Sales",
+      "goal_4": "Complex Business Solutions",
+      "goal_5": "Video Content Creation",
+      "goal_6": "Other"
     }
   },
   "footer": {
@@ -137,5 +191,43 @@
     "privacy": "Privacy Policy",
     "terms": "Terms of Service",
     "rights": "© 2026 amediå agency. All rights reserved."
+  },
+  "team": {
+    "roles": {
+      "techLead": "Technical Lead",
+      "generalDirector": "CEO",
+      "projectManager": "Project Manager"
+    },
+    "desc": {
+      "techLead": "Technical implementation and project architecture.",
+      "generalDirector": "Strategic management and agency development.",
+      "projectManager": "Process coordination and project management."
+    }
+  },
+  "reviews": {
+    "title": "Reviews",
+    "subtitle": "What partners and clients say about us. Honest opinions about the results of our collaboration.",
+    "items": [
+      {
+        "client": "Lars Eriksen",
+        "company": "TechCorp",
+        "text": "The amediå team exceeded all our expectations. They didn't just complete the task — they deeply immersed themselves in our business processes and proposed an elegant solution that saved us months of work."
+      },
+      {
+        "client": "Thomas Müller",
+        "company": "Retail Group",
+        "text": "Stunning attention to detail and a deep understanding of modern design. Our new website has become a real magnet for clients."
+      },
+      {
+        "client": "Ingrid Solberg",
+        "company": "Startup Hub",
+        "text": "Perfect communication at all stages. Everything is transparent, clear, and exactly on time. True professionals in their field."
+      },
+      {
+        "client": "Sophie Laurent",
+        "company": "FinTech Pro",
+        "text": "The amediå minimalist approach to design is exactly what we were looking for. No visual noise, just pure function and aesthetics."
+      }
+    ]
   }
 }

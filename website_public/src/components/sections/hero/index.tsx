@@ -98,8 +98,8 @@ export function Hero() {
   }, []);
 
   return (
-    <section 
-      ref={containerRef} 
+    <section
+      ref={containerRef}
       className="relative w-full min-h-screen flex flex-col text-white overflow-hidden bg-zinc-950"
     >
       {/* Background Image & Overlay */}
@@ -129,113 +129,113 @@ export function Hero() {
         <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-transparent to-zinc-950/30 z-10" />
       </div>
 
-      <div className="relative z-20 max-w-7xl w-full mx-auto px-6 flex-1 flex flex-col justify-center">
-        <div className="w-full lg:w-[65%] xl:w-[60%] flex flex-col space-y-6 md:space-y-8 pt-32 pb-24 md:pt-44 md:pb-32">
+      <div className="relative z-20 max-w-7xl w-full mx-auto px-4 sm:px-6 flex-1 flex flex-col justify-center">
+        <div className="w-full lg:w-[65%] xl:w-[60%] flex flex-col space-y-5 sm:space-y-6 md:space-y-8 pt-28 sm:pt-32 pb-20 sm:pb-24 md:pt-44 md:pb-32">
           
           {/* Eyebrow */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.8, ease: "easeOut" }}
-            className="flex items-center space-x-3 text-amedia-blue font-mono text-xs md:text-sm tracking-[0.25em] uppercase"
+            className="flex items-center space-x-3 text-amedia-blue font-mono text-[10px] sm:text-xs md:text-sm tracking-[0.25em] uppercase"
           >
-            <span className="w-8 h-[2px] bg-amedia-blue inline-block"></span>
+            <span className="w-6 sm:w-8 h-[2px] bg-amedia-blue inline-block"></span>
             <span>{t('hero.eyebrow')}</span>
           </motion.div>
 
           {/* Main Title */}
-          <motion.h1 
+          <motion.h1
             initial={{ opacity: 0, y: 25 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.8, ease: "easeOut" }}
-            className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-[1.1]"
+            className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-[1.1]"
           >
             {t('hero.title')}
           </motion.h1>
 
           {/* Description */}
-          <motion.p 
+          <motion.p
             initial={{ opacity: 0, y: 25 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6, duration: 0.8, ease: "easeOut" }}
-            className="text-base md:text-lg text-white/70 max-w-xl font-light leading-relaxed"
+            className="text-sm sm:text-base md:text-lg text-white/70 max-w-xl font-light leading-relaxed"
           >
             {t('hero.description')}
           </motion.p>
 
           {/* Action Buttons */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.8, duration: 0.8, ease: "easeOut" }}
-            className="flex flex-wrap gap-4 pt-2"
+            className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4 pt-2"
           >
-            <a 
-              href="#contact" 
+            <a
+              href="#contact"
               onClick={(e) => handleScrollTo(e, '#contact')}
-              className="group px-8 py-4 bg-amedia-blue text-white rounded-full font-semibold tracking-wider text-xs md:text-sm flex items-center gap-2 hover:bg-white hover:text-black transition-all duration-300 shadow-lg shadow-amedia-blue/20 hover:shadow-white/10"
+              className="group px-6 sm:px-8 py-3.5 sm:py-4 bg-amedia-blue text-white rounded-full font-semibold tracking-wider text-xs md:text-sm flex items-center justify-center gap-2 hover:bg-white hover:text-black transition-all duration-300 shadow-lg shadow-amedia-blue/20 hover:shadow-white/10"
             >
               <span>{t('hero.cta_primary')}</span>
-              <svg 
-                className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" 
-                fill="none" 
-                viewBox="0 0 24 24" 
-                stroke="currentColor" 
+              <svg
+                className="w-4 h-4 transform group-hover:translate-x-1 transition-transform"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
                 strokeWidth="2.5"
               >
                 <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
               </svg>
             </a>
-            <a 
-              href="#roi" 
+            <a
+              href="#roi"
               onClick={(e) => handleScrollTo(e, '#roi')}
-              className="px-8 py-4 bg-transparent border border-white/20 hover:border-white text-white rounded-full font-semibold tracking-wider text-xs md:text-sm hover:bg-white/5 transition-all duration-300"
+              className="px-6 sm:px-8 py-3.5 sm:py-4 bg-transparent border border-white/20 hover:border-white text-white rounded-full font-semibold tracking-wider text-xs md:text-sm hover:bg-white/5 transition-all duration-300 flex items-center justify-center"
             >
               {t('hero.cta_secondary')}
             </a>
           </motion.div>
 
           {/* Metrics Grid */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1.0, duration: 0.8, ease: "easeOut" }}
-            className="grid grid-cols-3 gap-6 pt-10 border-t border-white/10 max-w-2xl"
+            className="grid grid-cols-3 gap-4 sm:gap-6 pt-8 sm:pt-10 border-t border-white/10 max-w-2xl"
           >
             <div className="space-y-1">
-              <div className="text-2xl md:text-4xl font-bold text-white font-mono">{t('hero.metric_1_val')}</div>
-              <div className="text-[10px] md:text-xs uppercase tracking-wider text-white/50">{t('hero.metric_1_txt')}</div>
+              <div className="text-xl sm:text-2xl md:text-4xl font-bold text-white font-mono">{t('hero.metric_1_val')}</div>
+              <div className="text-[9px] sm:text-[10px] md:text-xs uppercase tracking-wider text-white/50">{t('hero.metric_1_txt')}</div>
             </div>
             <div className="space-y-1">
-              <div className="text-2xl md:text-4xl font-bold text-white font-mono">{t('hero.metric_2_val')}</div>
-              <div className="text-[10px] md:text-xs uppercase tracking-wider text-white/50">{t('hero.metric_2_txt')}</div>
+              <div className="text-xl sm:text-2xl md:text-4xl font-bold text-white font-mono">{t('hero.metric_2_val')}</div>
+              <div className="text-[9px] sm:text-[10px] md:text-xs uppercase tracking-wider text-white/50">{t('hero.metric_2_txt')}</div>
             </div>
             <div className="space-y-1">
-              <div className="text-2xl md:text-4xl font-bold text-white font-mono">{t('hero.metric_3_val')}</div>
-              <div className="text-[10px] md:text-xs uppercase tracking-wider text-white/50">{t('hero.metric_3_txt')}</div>
+              <div className="text-xl sm:text-2xl md:text-4xl font-bold text-white font-mono">{t('hero.metric_3_val')}</div>
+              <div className="text-[9px] sm:text-[10px] md:text-xs uppercase tracking-wider text-white/50">{t('hero.metric_3_txt')}</div>
             </div>
           </motion.div>
         </div>
       </div>
 
       {/* Scroll Down Indicator */}
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 0.5 }}
         transition={{ delay: 1.2, duration: 0.8 }}
-        className="absolute bottom-8 left-6 md:left-12 flex items-center space-x-4 z-20 select-none pointer-events-none"
+        className="absolute bottom-8 left-4 sm:left-6 md:left-12 flex items-center space-x-4 z-20 select-none pointer-events-none"
       >
         <span className="text-[10px] md:text-xs uppercase tracking-[0.3em] font-mono text-white">{t('hero.scroll')}</span>
         <div className="w-12 h-[1px] bg-white/20 relative">
-          <motion.div 
+          <motion.div
             className="absolute top-0 left-0 h-full bg-amedia-blue w-4"
-            animate={{ 
+            animate={{
               x: [0, 48 - 16, 0],
             }}
-            transition={{ 
-              repeat: Infinity, 
-              duration: 2, 
-              ease: "easeInOut" 
+            transition={{
+              repeat: Infinity,
+              duration: 2,
+              ease: "easeInOut"
             }}
           />
         </div>

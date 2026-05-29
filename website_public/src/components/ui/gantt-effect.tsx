@@ -7,16 +7,16 @@ export function GanttEffect({ color = "bg-white" }: { color?: string }) {
   const [tasks, setTasks] = useState<Array<{ id: number, width: number, top: number, duration: number, delay: number, opacity: number, progress: number }>>([]);
 
   useEffect(() => {
-    // 8 тонких дорожек для более изящной сетки
-    const lanes = [10, 20, 32, 45, 55, 68, 80, 90];
+    // 10 дорожек для более плотной сетки
+    const lanes = [8, 18, 28, 38, 48, 58, 68, 78, 88, 95];
 
-    const newTasks = Array.from({ length: 18 }).map((_, i) => ({
+    const newTasks = Array.from({ length: 24 }).map((_, i) => ({
       id: i,
-      width: Math.random() * 100 + 60, // Более аккуратная ширина
+      width: Math.random() * 120 + 80, // Чуть шире полоски
       top: lanes[Math.floor(Math.random() * lanes.length)],
-      duration: Math.random() * 10 + 20, // Оптимальная скорость
-      delay: -(Math.random() * 30), 
-      opacity: Math.random() * 0.2 + 0.15, // Мягкая, премиальная полупрозрачность
+      duration: Math.random() * 12 + 18, // Разная скорость
+      delay: -(Math.random() * 25),
+      opacity: Math.random() * 0.3 + 0.3, // Ярче — 0.3-0.6
       progress: Math.random() * 60 + 20,
     }));
     setTasks(newTasks);
@@ -29,24 +29,20 @@ export function GanttEffect({ color = "bg-white" }: { color?: string }) {
       exit={{ opacity: 0 }}
       transition={{ duration: 0.5 }}
       className="absolute inset-0 pointer-events-none z-0 overflow-hidden"
-      style={{
-        maskImage: "linear-gradient(to right, transparent 0%, transparent 20%, black 80%, black 100%)",
-        WebkitMaskImage: "linear-gradient(to right, transparent 0%, transparent 20%, black 80%, black 100%)"
-      }}
     >
       {tasks.map((task) => (
         <motion.div
           key={task.id}
           className={`absolute rounded-sm overflow-hidden flex items-center ${color}`}
           style={{
-            height: "6px", // Тонкие, элегантные линии
+            height: "8px", // Чуть толще линии
             width: `${task.width}px`,
-            top: `calc(${task.top}% - 3px)`,
-            right: "-200px", 
+            top: `calc(${task.top}% - 4px)`,
+            right: "-200px",
             opacity: task.opacity,
           }}
           animate={{
-            x: ["0px", "-1600px"], 
+            x: ["0px", "-1600px"],
           }}
           transition={{
             duration: task.duration,
@@ -55,10 +51,10 @@ export function GanttEffect({ color = "bg-white" }: { color?: string }) {
             ease: "linear",
           }}
         >
-          {/* Очень деликатный прогресс */}
-          <div 
-            className="h-full bg-black/10" 
-            style={{ width: `${task.progress}%` }} 
+          {/* Прогресс-бар */}
+          <div
+            className="h-full bg-black/20"
+            style={{ width: `${task.progress}%` }}
           />
         </motion.div>
       ))}

@@ -17,10 +17,9 @@ export default function Home() {
       <About />
       <ROICalculator />
       <Portfolio />
-      <ContactForm />
-      <Reviews />
       <Team />
-      
+      <Reviews />
+      <ContactForm />
       <Footer />
     </main>
   );

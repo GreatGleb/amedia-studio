@@ -44,16 +44,16 @@ export function NetworkEffect({ color = "255, 255, 255" }: { color?: string }) {
     canvas.addEventListener("mouseleave", handleMouseLeave);
 
     // Node definition
-    const numNodes = 60; // Увеличил количество узлов для плотности
-    const maxDistance = 140; // Оптимальная дистанция связи
-    const mouseInteractionRadius = 180; // Радиус взаимодействия с мышью
+    const numNodes = 80; // Больше узлов для плотности
+    const maxDistance = 160; // Чуть больше дистанция связи
+    const mouseInteractionRadius = 200; // Радиус взаимодействия с мышью
 
     const nodes = Array.from({ length: numNodes }).map(() => ({
       x: Math.random() * width,
       y: Math.random() * height,
-      vx: (Math.random() - 0.5) * 0.6, // Очень плавное движение
-      vy: (Math.random() - 0.5) * 0.6,
-      radius: Math.random() * 1.5 + 0.5, // Более изящные точки
+      vx: (Math.random() - 0.5) * 0.4, // Медленное плавное движение
+      vy: (Math.random() - 0.5) * 0.4,
+      radius: Math.random() * 2 + 1, // Крупнее точки
     }));
 
     const draw = () => {
@@ -82,8 +82,8 @@ export function NetworkEffect({ color = "255, 255, 255" }: { color?: string }) {
           ctx.beginPath();
           ctx.moveTo(node.x, node.y);
           ctx.lineTo(mouseRef.current.x, mouseRef.current.y);
-          ctx.strokeStyle = `rgba(${color}, ${force * 0.4})`;
-          ctx.lineWidth = 1;
+          ctx.strokeStyle = `rgba(${color}, ${force * 0.6})`;
+          ctx.lineWidth = 1.5;
           ctx.stroke();
         }
 
@@ -104,9 +104,9 @@ export function NetworkEffect({ color = "255, 255, 255" }: { color?: string }) {
             ctx.moveTo(nodes[i].x, nodes[i].y);
             ctx.lineTo(nodes[j].x, nodes[j].y);
             // Плавное затухание линии в зависимости от расстояния
-            const opacity = Math.pow(1 - dist / maxDistance, 1.5); // Квадратичное затухание выглядит красивее
-            ctx.strokeStyle = `rgba(${color}, ${opacity * 0.5})`;
-            ctx.lineWidth = 1;
+            const opacity = Math.pow(1 - dist / maxDistance, 1.5);
+            ctx.strokeStyle = `rgba(${color}, ${opacity * 0.7})`; // Ярче линии
+            ctx.lineWidth = 1.2; // Толще линии
             ctx.stroke();
           }
         }
@@ -116,7 +116,7 @@ export function NetworkEffect({ color = "255, 255, 255" }: { color?: string }) {
       for (let i = 0; i < numNodes; i++) {
         ctx.beginPath();
         ctx.arc(nodes[i].x, nodes[i].y, nodes[i].radius, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(${color}, 0.8)`;
+        ctx.fillStyle = `rgba(${color}, 1)`;
         ctx.fill();
       }
 
@@ -139,11 +139,7 @@ export function NetworkEffect({ color = "255, 255, 255" }: { color?: string }) {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.5 }}
-      className="absolute inset-0 z-0 overflow-hidden" // Убрал pointer-events-none, чтобы ловить события мыши
-      style={{
-        maskImage: "linear-gradient(to right, transparent 0%, transparent 40%, black 80%, black 100%)",
-        WebkitMaskImage: "linear-gradient(to right, transparent 0%, transparent 40%, black 80%, black 100%)"
-      }}
+      className="absolute inset-0 z-0 overflow-hidden"
     >
       <canvas
         ref={canvasRef}
